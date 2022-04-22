@@ -1,0 +1,35 @@
+<template>
+    <div>
+        <!-- <Header /> -->
+        <!-- <hr> -->
+        <Nuxt />
+        <!-- <SearchedProducts v-else />
+        <Footer /> -->
+    </div>
+</template>
+
+<script>
+// import Header from '../components/Header'
+// import Footer from '../components/Footer'
+// import SearchedProducts from '../components/SearchedProducts'
+import { mapGetters, mapActions } from 'vuex';
+export default {
+    // components: {Header, Footer, SearchedProducts},
+    created() {
+        // this.$store.dispatch('cart/setProductsToCart')
+        // const userToken = this.$store.getters['user/userToken']
+        // if (userToken) this.$axios.setHeader('Authorization', `Bearer ${userToken}`)
+    },
+    // mounted() {
+    //     let cartPerfumes = localStorage.getItem('cart-products')
+    //     if (!cartPerfumes) cartPerfumes = []
+    //     else cartPerfumes = JSON.parse(cartPerfumes)
+    //     this.$store.dispatch('cart/setProductsToCart', cartPerfumes)
+    // },
+    // computed:{
+    //     ...mapGetters({
+    //         search: 'search/search',
+    //     }),
+    // },
+}
+</script>

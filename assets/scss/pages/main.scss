@@ -1,0 +1,16 @@
+//configs
+@import './config/variables';
+@import './config/mixins';
+@import './config/fonts';
+
+//layout
+@import './base/layout';
+
+
+//layout
+@import './base/layout';
+@import './base/transitions';
+
+//components
+@import './components/header';
+@import './components/footer';

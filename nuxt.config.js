@@ -1,3 +1,4 @@
+// started time 22.04.2022
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
