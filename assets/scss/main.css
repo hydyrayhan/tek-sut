@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'roboto';
+  src: url("../fonts/roboto/Roboto-Regular.ttf");
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto 0;
+  max-width: 1420px;
+}
+
+.header_top {
+  background: #8DC63F;
+  padding: 13px 0;
+}
+
+.header_top .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header_top .container .header_top_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header_top .container .header_top_box_icon {
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header_top .container .header_top_box_icon img {
+  width: 100%;
+}
+
+.header_top .container .header_top_box_text {
+  color: white;
+  font-size: 12px;
+}
+
+.header_top .container .header_top_box .languageTrigger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.header_top .container .header_top_box .languageTrigger .header_top_box_text {
+  margin: 0 10px;
+}
+
+.header_top .container .header_top_box .languageTrigger .languageIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header_top .container .header_top_box .body .lang {
+  cursor: pointer;
+}
+
+.toasted {
+  background: #F5F5F5 !important;
+  color: #006838 !important;
+  border-radius: 16px !important;
+  -webkit-box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2) !important;
+          box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2) !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  color: #0B0B0B;
+  font-family: Roboto;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+/*# sourceMappingURL=main.css.map */

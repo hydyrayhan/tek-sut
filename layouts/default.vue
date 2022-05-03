@@ -1,20 +1,18 @@
 <template>
     <div>
-        <!-- <Header /> -->
-        <!-- <hr> -->
+        <Header />
         <Nuxt />
-        <!-- <SearchedProducts v-else />
-        <Footer /> -->
+        <Footer />
     </div>
 </template>
 
 <script>
-// import Header from '../components/Header'
-// import Footer from '../components/Footer'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 // import SearchedProducts from '../components/SearchedProducts'
 import { mapGetters, mapActions } from 'vuex';
 export default {
-    // components: {Header, Footer, SearchedProducts},
+    components: {Header, Footer},
     created() {
         // this.$store.dispatch('cart/setProductsToCart')
         // const userToken = this.$store.getters['user/userToken']

@@ -19,10 +19,12 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    { src: '~/assets/scss/main.css' }
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/v-dropdown-menu' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -31,11 +33,37 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
   ],
-
+  moment: {
+    defaultLocale: 'tm',
+    locales: ['ru', 'tm'],
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'cookie-universal-nuxt',
+    '@nuxtjs/toast',
+    [
+      '@nuxtjs/i18n',
+      {
+        strategy: 'no_prefix',
+        locales: [
+          {
+            code: 'tm',
+            file: 'tm-TM.js',
+            name: 'Türkmen',
+          },
+          {
+            code: 'ru',
+            file: 'ru-RU.js',
+            name: 'Русский',
+          },
+        ],
+        lazy: true,
+        langDir: 'lang/',
+        defaultLocale: 'tm',
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -43,7 +71,11 @@ export default {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
   },
-
+  toast: {
+    position: 'top-center',
+    duration: 5000,
+    className:['toast'],
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }

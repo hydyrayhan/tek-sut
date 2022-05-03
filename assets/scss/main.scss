@@ -1,0 +1,50 @@
+//download with this code     npm i -D sass-loader@10.1.1 --save-exact && npm i -D sass 
+//configs
+@import './config/variables';
+@import './config/mixins';
+@import './config/fonts';
+
+//layout
+@import './base/layout';
+// @import './base/transitions';
+
+//components
+@import './components/header';
+@import './components/footer';
+// @import './components/mobileMenu';
+// @import './components/product';
+// @import './components/cart';
+// @import './components/order';
+// // @import './components/Modals/searchModal';
+// @import './components/searched';
+
+//pages
+@import './pages/index';
+// @import './pages/categories';
+// @import './pages/product';
+// @import './pages/markets';
+// @import './pages/market';
+// @import './pages/login';
+// @import './pages/register';
+// @import './pages/forgot';
+// @import './pages/userProfileEdit';
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: $black;
+  font-family: Roboto;
+}
+
+a{
+  text-decoration: none;
+}
+body{
+  overflow-x: hidden;
+}
