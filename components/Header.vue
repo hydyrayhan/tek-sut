@@ -50,7 +50,57 @@
     </div>
     <div class="header_bottom">
       <div class="container">
-
+        <nuxt-link to="/" class="header_bottom_box">
+          <div class="logo_icon">
+            <img src="~/assets/images/logo.svg" alt="logo">
+          </div>
+          <div class="logo_text">Logo Example</div>
+        </nuxt-link>
+        <div class="header_bottom_box header_category">
+          <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCategory.svg" alt="headerCategory"></div>
+          <div class="header_bottom_box_text">{{$t('category')}}</div>
+          <div class="hiddenCategory">
+            <div class="cube"></div>
+            <div class="cube2"></div>
+            <div class="cube3"></div>
+            <nuxt-link to="/" class="hiddenCategory_category">
+              <div>Category 1 </div>
+              <div class="hiddenSubCategory">
+                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+              </div>
+            </nuxt-link>
+            <nuxt-link to="/" class="hiddenCategory_category">
+              <div>Category 1 </div>
+              <div class="hiddenSubCategory">
+                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+              </div>
+            </nuxt-link>
+            <nuxt-link to="/" class="hiddenCategory_category">
+              <div>Category 1 </div>
+              <div class="hiddenSubCategory">
+                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+              </div>
+            </nuxt-link>
+          </div>
+        </div>
+        <div class="header_bottom_box">
+          <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerBrands.svg" alt="headerBrands"></div>
+          <div class="header_bottom_box_text">{{$t('brand')}}</div>
+        </div>
+        <label class="header_bottom_box header_search">
+          <input type="text" :placeholder="$t('search')">
+          <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerSearch.svg" alt="headerSearch"></div>
+        </label>
+        <div class="header_bottom_box">
+          <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCart.svg" alt="headerCart"></div>
+          <div class="header_bottom_box_text">{{$t('cart')}}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -60,7 +110,7 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   data(){
-    return {
+    return { 
     }
   },
   computed: {

@@ -12,7 +12,7 @@
 @import './components/header';
 @import './components/footer';
 // @import './components/mobileMenu';
-// @import './components/product';
+@import './components/product';
 // @import './components/cart';
 // @import './components/order';
 // // @import './components/Modals/searchModal';
@@ -47,4 +47,5 @@ a{
 }
 body{
   overflow-x: hidden;
+  background-color: #F5F5F5;
 }

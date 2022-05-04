@@ -1,4 +1,17 @@
 export default {
   secured:"All our products are certificated",
   languageChanged:"Dil çalşyldy",
+  category:"Kategory",
+  brand:"Brand",
+  search:"Search for products",
+  cart:"Sebet",
+  workTime:"Ish wagty",
+  discount:"Discount",
+  newProducts:"New products",
+  wholesalers:"wholesalers",
+  aboutUs:"About us",
+  contact:"Contact us",
+  orderAd:"Order advice",
+  addCart:"Sebede goş",
+  newProducts:"Täze harytlar",
 }

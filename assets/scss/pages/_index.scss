@@ -1,0 +1,29 @@
+.category_header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  &_buttons{
+    display: flex;
+    align-items: center;
+    &_button{
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid #AFAFAF;
+      border-radius: 8px;
+      cursor: pointer;
+      &:first-child{
+        margin-right: 16px;
+      }
+      &:hover{
+        border: 1px solid $green;
+        svg{
+          path{
+            fill: $green;
+          }
+        }
+      }
+    }
+  }
+}

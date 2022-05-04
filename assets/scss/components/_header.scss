@@ -40,6 +40,113 @@
       }
     }
   }
+  &_bottom{
+    background-color: #F6F6F6;
+    box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+    .container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      position: relative;
+      .header_bottom_box{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .logo_text{
+          font-size: 13px;
+          color: $green;
+        }
+        .logo_icon{
+          display: flex;
+          align-items: center;
+          margin-right: 5px;
+        }
+        &_icon{
+          margin-right: 10px;
+          display: flex;
+          align-items: center;
+        }
+        &_text{
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 16px;
+        }
+      }
+      .header_search{
+        background-color: #EDEDED;
+        padding: 10px 16px;
+        border-radius: 8px;
+        width: 40%;
+        input{
+          outline: none;
+          border: none;
+          background: none;
+          width: 100%;
+          &::placeholder{
+            color: #AFAFAF;
+            font-size: 14px;
+          }
+        }
+        .header_bottom_box_icon{
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+  .header_category{
+    position: relative;
+  }
+  .header_category:hover{
+    .hiddenCategory{
+      display: block;
+    }
+  }
+  .hiddenCategory{
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background-color: white;
+    padding:7px 0;
+    z-index: 2;
+    width: 230px;
+    text-align: start;
+    &:hover{
+      display: block;
+    }
+    .hiddenSubCategory{
+      display: none;
+    }
+
+    .cube{
+      transform: rotate(45deg);
+      background-color: white;
+      width: 23px;
+      height: 23px;
+      top: -11px;
+      left: 20px;
+      position: absolute;
+      box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+      z-index: -2;
+    }
+    .cube2{
+      position: absolute;
+      width: 40px;
+      height: 30px;
+      background: white;
+      z-index: -1;
+      top: 0;
+      left: 12px;
+    }
+    .cube3{
+      width: 230px;
+      height: 30px;
+      position: absolute;
+      top: -20px;
+      z-index: -3;
+    }
+  }
 }
 
 .toasted{
