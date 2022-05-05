@@ -1,14 +1,14 @@
 <template>
   <div class="container">
       <div class="banner">
-        <!-- <swiper
+        <swiper
           class="swiper news__slider"
           :options="bannerSliderOptions"
         >
           <swiper-slide>
             <nuxt-link to="/" class="news__slider__item"> 
                 <div class="news__slider__item__image">
-                  <img v-bind:src="$config.url+'/'+i.image" alt="">
+                  <!-- <img v-bind:src="$config.url+'/'+i.image" alt=""> -->
                   <img src="~/assets/images/deleteImages/banner.png" alt="">
                   <img src="~/assets/images/deleteImages/banner.png" alt="">
                 </div>
@@ -18,7 +18,7 @@
 
             <div slot="button-prev" style="display:none" class="swiper-button-prev"></div>
             <div slot="button-next" style="display:none" class="swiper-button-next"></div>
-        </swiper> -->
+        </swiper>
       </div>
 
       <div>
