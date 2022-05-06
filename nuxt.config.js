@@ -1,6 +1,13 @@
-// started time 22.04.2022
+// started time 05.05.2022
+require('dotenv').config({
+  path: './config/config.env',
+})
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  server: {
+    host: process.env.HOST || 'localhost',
+    port: process.env.PORT || 3001,
+  },
   head: {
     title: 'tek',
     htmlAttrs: {

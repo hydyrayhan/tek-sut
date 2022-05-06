@@ -12,6 +12,11 @@ export default {
   aboutUs:"About us",
   contact:"Contact us",
   orderAd:"Order advice",
+  usage:"Ulanyş düzgünleri",
   addCart:"Sebede goş",
   newProducts:"Täze harytlar",
+  home:"Esasy",
+  price:"Bahasy",
+  lowtohigh:"Arzandan gymmada",
+  hightolow:"Gymmatdan arzana", 
 }

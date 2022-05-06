@@ -11,7 +11,7 @@
 //components
 @import './components/header';
 @import './components/footer';
-// @import './components/mobileMenu';
+@import './components/breadcrumb';
 @import './components/product';
 // @import './components/cart';
 // @import './components/order';
@@ -20,7 +20,7 @@
 
 //pages
 @import './pages/index';
-// @import './pages/categories';
+@import './pages/category';
 // @import './pages/product';
 // @import './pages/markets';
 // @import './pages/market';
