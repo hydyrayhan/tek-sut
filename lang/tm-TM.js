@@ -19,4 +19,12 @@ export default {
   price:"Bahasy",
   lowtohigh:"Arzandan gymmada",
   hightolow:"Gymmatdan arzana", 
+  new:"NEW",
+  quantity:"Mukdary",
+  productCode:"Haryt kody",
+  buyOneClick:"Satyn al",
+  submitRate:"Baha ber",
+  related:"Baglanşykly harytlar",
+  copyLink:"Link kopýala",
+  copied:"Link kopýalandy",
 }

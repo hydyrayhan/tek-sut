@@ -11,8 +11,8 @@
           <Product />
         </div>
       </swiper-slide>
-      <div slot="button-prev" style="display:none"  class="swiper-button-prev"></div>
-      <div slot="button-next" style="display:none"  class="swiper-button-next"></div>
+      <div slot="button-prev" style="display:none"  class="swiper-button-prev prevv"></div>
+      <div slot="button-next" style="display:none"  class="swiper-button-next nextt"></div>
     </swiper>
   </div>
 </template>
@@ -36,11 +36,11 @@ export default {
   },
   watch:{
     left_bool(){
-      const prev = document.querySelectorAll(".swiper-button-prev")[1];
+      const prev = document.querySelector(".prevv");
       prev.click();
     },
     right_bool(){
-      const prev = document.querySelectorAll(".swiper-button-next")[1];
+      const prev = document.querySelector(".nextt");
       prev.click();
     }
   },

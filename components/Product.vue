@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <nuxt-link to="/">
+    <nuxt-link to="/product/1">
       <div class="product_image"><img src="~/assets/images/deleteImages/product.png" alt=""></div>
       <div class="product_name">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, doloribus?</div>
       <div class="product_rating">
