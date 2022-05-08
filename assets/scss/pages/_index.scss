@@ -27,3 +27,34 @@
     }
   }
 }
+.banner{
+  margin-top: 23px;
+  .swiper-container{
+    border-radius: 16px !important;
+  }
+  .swiper{
+    img{
+      width: 100%;
+    }
+  }
+  .swiper-pagination-bullet{
+    background-color: #E2E0E0;
+    opacity: 0.5;
+  }
+  .swiper-pagination-bullet-active{
+    background-color: $green;
+    opacity: 1;
+  }
+  .swiper-button{
+    background-color: rgba(226, 224, 224, .5);
+    padding: 10px;
+    border-radius: 20px;
+    color: $lightgray;
+    font-size: 12px;
+    width: 40px;
+    height: 40px;
+    &::after{
+      font-size: 20px;
+    }
+  }
+}

@@ -1,4 +1,8 @@
 .header{
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 10;
   &_top{
     background: $green;
     padding: 13px 0;
@@ -32,9 +36,28 @@
             align-items: center;
           }
         }
+        .v-dropdown-menu__container{
+          min-width: fit-content;
+          max-width: fit-content;
+          box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+          border-radius: 4px;
+        }
         .body{
+          padding: 4px 0;
           .lang{
             cursor: pointer;
+            padding: 2px 0;
+            width: 95px;
+            color: $lightgray;
+            text-align: center;
+            font-size: 14px;
+            &:hover{
+              background: rgba(141, 198, 63, .4);
+            }
+          }
+          .active{
+            background: rgba(141, 198, 63, .4);
+            color: $gray;
           }
         }
       }
@@ -53,6 +76,44 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        position: relative;
+        .active{
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          background-color: $red;
+          border-radius: 6px;
+          top: -5px;
+          left: 15px;
+        }
+        .cart{
+          background-color: white;
+          position: absolute;
+          right: 0%;
+          top: 40px;
+          box-shadow: 0px 0px 11px rgba(19, 23, 61, 0.14);
+          border-radius: 8px;
+          padding: 24px;
+
+          .cart_cube1{
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            transform: rotate(45deg);
+            position: absolute;
+            top:-12px;
+            right: 42px;
+            box-shadow: 0px 0px 11px rgba(19, 23, 61, 0.14);
+          }
+          .cart_cube2{
+            width: 40px;
+            height: 20px;
+            background-color: white;
+            position: absolute;
+            right: 32px;
+            top:0;
+          }
+        }
         .logo_text{
           font-size: 13px;
           color: $green;
@@ -94,6 +155,8 @@
       }
     }
   }
+
+  
   .header_category{
     position: relative;
   }
@@ -102,6 +165,7 @@
       display: block;
     }
   }
+
   .hiddenCategory{
     display: none;
     position: absolute;
@@ -112,11 +176,53 @@
     z-index: 2;
     width: 230px;
     text-align: start;
+    border-radius: 6px;
     &:hover{
       display: block;
     }
+
+
+    .hiddenCategory_category{
+      position: relative;
+      .child{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 24px;
+      }
+    }
+    // sub
     .hiddenSubCategory{
       display: none;
+      position: absolute;
+      background-color: #FCFCFC;
+      top: 0;
+      left: 230px;
+      box-shadow: 9px 0px 11px rgba(152, 152, 152, 0.2);
+      border-radius: 0px 6px 6px 6px;
+      width: 280px;
+      .hiddenSubCategory_subCategory{
+        width: 100%;
+        display: inline-block;
+        padding: 8px 16px;
+        margin: 5px 0;
+        &:hover{
+          background-color: rgba(141, 198, 63, 0.4);;
+        }
+      }
+    }
+    .hiddenCategory_category:hover{
+      .hiddenCategory_category_child{
+        background: rgba(141, 198, 63, 0.4);
+        svg{
+          path{
+            fill: $black;
+          }
+        }
+      }
+      .hiddenSubCategory{
+        display: block;
+      }
     }
 
     .cube{

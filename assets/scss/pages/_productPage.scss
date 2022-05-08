@@ -1,0 +1,205 @@
+.productPage{
+  padding: 8px 150px 24px 8px;
+  background-color: #FCFCFC;
+  box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+  border-radius: 8px;
+  display: flex;
+  &_image{
+    min-width: 300px;
+    margin-right: 24px;
+    position: relative;
+    &_new{
+      background: $yellow;
+      color: #FCFCFC;
+      border-radius: 8px;
+      padding: 5px 10px;
+      position: absolute;
+      top: 0;
+    }
+    &_discount{
+      background: $red;
+      border-radius: 8px;
+      color: #FCFCFC;
+      padding: 5px 10px;
+      position: absolute;
+      top: 35px;
+    }
+    &_big{
+      min-width: 300px;
+      margin-bottom: 8px;
+      img{
+        width: 100%;
+      }
+    }
+    &_small{
+      display: flex;
+      margin-bottom: 8px;
+      &_image{
+        width: 50px;
+        height: 50px;
+        margin-right: 8px;
+        cursor: pointer;
+        img{
+          width: 100%;
+        }
+      }
+      .active{
+        border: 2px solid $green;
+      }
+    }
+  }
+  &_info{
+    &_subname{
+      margin-bottom: 16px;
+    }
+
+    &_name{
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      .copyLink{
+        margin-left: 28px;
+        position: relative;
+        cursor: pointer;
+        &:last-child{
+          display: none;
+        }
+        &:hover{
+          .copyLink_text{
+            display: block;
+          }
+        }
+        &_text{
+          position: absolute;
+          padding: 4px 8px;
+          color: $green;
+          background: #FCFCFC;
+          box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+          border-radius: 8px;
+          width: max-content;
+          left: -50px;
+          display: none;
+        }
+      }
+    }
+
+    &_priceRate{
+      display: flex;
+      margin-bottom: 24px;
+      &_price{
+        display: flex;
+        align-items: flex-end;
+        margin-right: 50px;
+        &_new{
+          font-size: 24px;
+          font-weight: 600;
+          margin-right: 14px;
+        }
+        &_old{
+          font-weight: 500;
+          font-size: 18px;
+          text-decoration-line: line-through;
+          color: $lightgray;
+        }
+      }
+      &_rate{
+        display: flex;
+        align-items: flex-end;
+        &_stars{
+          display: flex;
+          &_star{
+            width: 20px;
+            margin-right: 9px;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+        &_count{
+          margin-left: 3px;
+          font-size: 18px;
+          color: $lightgray;
+        }
+      }
+    }
+    &_quantity{
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+      &_title{
+        margin-right: 24px;
+      }
+      &_btn{
+        border: 1px solid #AFAFAF;
+        border-radius: 6px;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:hover{
+          border: 1px solid $green;
+        }
+      }
+      &_quantity{
+        margin: 0 16px;
+        font-size: 18px;
+      }
+    }
+
+    &_buyBtns{
+      display: flex;
+      margin-bottom: 24px;
+      &_btn{
+        padding: 10px 48px;
+        background: $green;
+        border-radius: 16px;
+        color: #FCFCFC;
+        display: flex;
+        align-items: center;
+        margin-right: 40px;
+        img{
+          margin-right: 25px;
+        }
+      }
+    }
+
+    &_description{
+      line-height: 20px;
+      margin-bottom: 27px;
+    }
+
+    &_rate{
+      &_stars{
+        display: flex;
+        margin-bottom: 20px;
+        &_star{
+          width: 27px;
+          height: 25px;
+          margin-right: 21px;
+          cursor: pointer;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      &_submitBtn{
+        cursor: pointer;
+        width: fit-content;
+        text-align: center;
+        padding: 11px 16px 10px;
+        border: 1px solid $green;
+        border-radius: 16px;
+        color: $green;
+      }
+    }
+  }
+}
+.related{
+  margin-bottom: 40px;
+}

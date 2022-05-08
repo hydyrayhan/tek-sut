@@ -40,8 +40,8 @@
                   </div>
                 </div>
                 <div slot="body" class="body">
-                  <div class="lang" @click="changeLanguage('tm')">Türkmen</div>
-                  <div class="lang" @click="changeLanguage('ru')">Русский</div>
+                  <div class="lang" :class="currentLanguage.code == 'tm' ? 'active' : ''" @click="changeLanguage('tm')">Türkmen</div>
+                  <div class="lang" :class="currentLanguage.code == 'ru' ? 'active' : ''" @click="changeLanguage('ru')">Русский</div>
                 </div>
               </dropdown-menu>
             </client-only>
@@ -56,39 +56,65 @@
           </div>
           <div class="logo_text">Logo Example</div>
         </nuxt-link>
-        <div class="header_bottom_box header_category">
-          <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCategory.svg" alt="headerCategory"></div>
-          <div class="header_bottom_box_text">{{$t('category')}}</div>
-          <div class="hiddenCategory">
-            <div class="cube"></div>
-            <div class="cube2"></div>
-            <div class="cube3"></div>
-            <nuxt-link to="/" class="hiddenCategory_category">
-              <div>Category 1 </div>
-              <div class="hiddenSubCategory">
-                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-              </div>
-            </nuxt-link>
-            <nuxt-link to="/" class="hiddenCategory_category">
-              <div>Category 1 </div>
-              <div class="hiddenSubCategory">
-                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-              </div>
-            </nuxt-link>
-            <nuxt-link to="/" class="hiddenCategory_category">
-              <div>Category 1 </div>
-              <div class="hiddenSubCategory">
-                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                <nuxt-link to="/" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-              </div>
-            </nuxt-link>
+        <client-only>
+          <div class="header_bottom_box header_category">
+            <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCategory.svg" alt="headerCategory"></div>
+            <div class="header_bottom_box_text">{{$t('category')}}</div>
+            <div class="hiddenCategory">
+              <div class="cube"></div>
+              <div class="cube2"></div>
+              <div class="cube3"></div>
+              <nuxt-link to="/category/1" class="hiddenCategory_category">
+                <div class="hiddenCategory_category_child">
+                  <div class="child">
+                    Category 1 
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.294956 10.59L1.70496 12L7.70496 6L1.70496 5.24537e-07L0.294955 1.41L4.87496 6L0.294956 10.59Z" fill="#AFAFAF"/>
+                    </svg>
+                  </div>
+
+                  <div class="hiddenSubCategory">
+                    <nuxt-link to="/category/1?subcategory=1" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                    <nuxt-link to="/category/2?subcategory=2" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                    <nuxt-link to="/category/3?subcategory=3" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                  </div>
+                </div>
+              </nuxt-link>
+              <nuxt-link to="/category/2" class="hiddenCategory_category">
+                <div class="hiddenCategory_category_child">
+                  <div class="child">
+                    Category 1 
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.294956 10.59L1.70496 12L7.70496 6L1.70496 5.24537e-07L0.294955 1.41L4.87496 6L0.294956 10.59Z" fill="#AFAFAF"/>
+                    </svg>
+                  </div>
+
+                  <div class="hiddenSubCategory">
+                    <nuxt-link to="/category/1?subcategory=1" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                    <nuxt-link to="/category/2?subcategory=2" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                    <nuxt-link to="/category/3?subcategory=3" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                  </div>
+                </div>
+              </nuxt-link>
+              <nuxt-link to="/catogory/3" class="hiddenCategory_category">
+                <div class="hiddenCategory_category_child">
+                  <div class="child">
+                    Category 1 
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.294956 10.59L1.70496 12L7.70496 6L1.70496 5.24537e-07L0.294955 1.41L4.87496 6L0.294956 10.59Z" fill="#AFAFAF"/>
+                    </svg>
+                  </div>
+
+                  <div class="hiddenSubCategory">
+                    <nuxt-link to="/category/1?subcategory=1" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                    <nuxt-link to="/category/2?subcategory=2" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                    <nuxt-link to="/category/3?subcategory=3" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                  </div>
+                </div>
+              </nuxt-link>
+            </div>
           </div>
-        </div>
+        </client-only>
         <div class="header_bottom_box">
           <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerBrands.svg" alt="headerBrands"></div>
           <div class="header_bottom_box_text">{{$t('brand')}}</div>
@@ -100,6 +126,40 @@
         <div class="header_bottom_box">
           <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCart.svg" alt="headerCart"></div>
           <div class="header_bottom_box_text">{{$t('cart')}}</div>
+          <div class="active"></div>
+          <div class="cart">
+            <div class="cart_cube1"></div>
+            <div class="cart_cube2"></div>
+
+            <div class="cart_header">
+              <div class="cart_header_left">Shopping Cart</div>
+              <div class="cart_header_left">3 item</div>
+            </div>
+
+            <div class="cart_product">
+              <div class="cart_product_image">
+                <img src="~/assets/images/deleteImages/product.png" alt="product">
+              </div>
+              <div class="cart_product_info">
+                <div class="cart_product_info_name">Almaly çizkeýk tagamly sufle "Attache" 1 kg</div>
+                <div class="cart_product_info_bottom">
+                  <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}</div>
+                  <div class="cart_product_info_bottom_price">8.00 manat</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cart_bottom">
+              <div class="cart_bottom_header">
+                <div class="cart_bottom_header_title">Total:</div>
+                <div class="cart_bottom_header_price">234 manat</div>
+              </div>
+              <div class="cart_bottom_buttons">
+                <div class="cart_bottom_buttons_white">Go to cart</div>
+                <div class="cart_bottom_buttons_green">Order</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

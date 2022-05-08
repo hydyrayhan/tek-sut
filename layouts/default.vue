@@ -1,6 +1,8 @@
 <template>
     <div>
-        <Header />
+        <div style="padding-top:116px">
+            <Header />
+        </div>
         <Nuxt />
         <Footer />
     </div>

@@ -1,0 +1,19 @@
+.breadcrumb{
+  display: flex;
+  margin: 24px 0 20px 0;
+  width:fit-content;
+  div{
+    margin-right: 18px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  svg{
+    margin-right: 18px;
+  }
+  span,a{
+    color: $gray;
+  }
+  .black{
+    color: $black;
+  }
+}

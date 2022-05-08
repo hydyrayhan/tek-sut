@@ -9,18 +9,13 @@
                          </div>
                          <div class="text">Logo Example</div>
                     </div>
-                    <div class="footer_top_box_link">{{$t('workTime')}} 09:00-19:00</div>
-                    <div class="footer_top_box_link">address of eCommerse</div>
+                    <!-- <div class="footer_top_box_link">{{$t('workTime')}} 09:00-19:00</div> -->
+                    <div class="footer_top_box_link" style="max-width:300px">address of eCommers</div>
                 </div>
                 <div class="footer_top_box">
                     <nuxt-link to="/" class="footer_top_box_link">{{$t('discount')}}</nuxt-link>
                     <nuxt-link to="/" class="footer_top_box_link">{{$t('newProducts')}}</nuxt-link>
                     <nuxt-link to="/" class="footer_top_box_link">{{$t('wholesalers')}}</nuxt-link>
-                </div>
-                <div class="footer_top_box">
-                    <nuxt-link to="/" class="footer_top_box_link">{{$t('aboutUs')}}</nuxt-link>
-                    <nuxt-link to="/" class="footer_top_box_link">{{$t('contact')}}</nuxt-link>
-                    <nuxt-link to="/" class="footer_top_box_link">{{$t('orderAd')}}</nuxt-link>
                 </div>
                 <div class="footer_top_box">
                     <div class="footer_top_box_link">
@@ -35,6 +30,12 @@
                         <div class="footer_top_box_link_icon"><img src="~/assets/images/icons/footerInsta.svg" alt="footerInsta"></div>
                         <div class="footer_top_box_link_text">@ecommerce</div>
                     </div>
+                </div>
+                <div class="footer_top_box">
+                    <nuxt-link to="/" class="footer_top_box_link">{{$t('aboutUs')}}</nuxt-link>
+                    <nuxt-link to="/" class="footer_top_box_link">{{$t('contact')}}</nuxt-link>
+                    <nuxt-link to="/" class="footer_top_box_link">{{$t('orderAd')}}</nuxt-link>
+                    <nuxt-link to="/" class="footer_top_box_link">{{$t('usage')}}</nuxt-link>
                 </div>
             </div>
             <div class="footer_bottom"><img src="~/assets/images/icons/footerCopyRight.svg" alt="footerCopyRight"> 2022   e-сommerce.com. Все права защищены</div>
