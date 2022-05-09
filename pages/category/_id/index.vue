@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="category_products" >
-      <div class="category_product" v-for="i in 10" :key="i">
+      <div class="category_product" v-for="i in 100" :key="i">
         <Product /> 
       </div>
     </div>
@@ -26,7 +26,8 @@ export default {
       positions:{
         category:{
           name:"Bla bla",
-          id:"1"
+          id:"1",
+          to:"/"
         },
         subcategory_name:'Sub category',
       }

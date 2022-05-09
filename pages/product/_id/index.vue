@@ -28,8 +28,10 @@
         <h2 class="productPage_info_subname">Fruits</h2>
 
         <div class="productPage_info_name">
-          Almaly çizkeýk tagamly sufle "Attache"500 gr (±15 gr) 
-          <span class="copyLink">
+          <span id="copyText" ref="mylink">
+            Almaly çizkeýk tagamly sufle "Attache"500 gr (±15 gr) 
+          </span>
+          <span class="copyLink" @click="copyLink('Almaly çizkeýk tagamly sufle `Attache`500 gr (±15 gr)')">
             <svg width="16" height="22" viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 4L10.58 5.42L8.99 3.83V15H7.01V3.83L5.42 5.42L4 4L8 0L12 4ZM16 9V20C16 21.1 15.1 22 14 22H2C0.89 22 0 21.1 0 20V9C0 7.89 0.89 7 2 7H5V9H2V20H14V9H11V7H14C15.1 7 16 7.89 16 9Z" fill="#8DC63F"/>
             </svg>
@@ -122,7 +124,8 @@ export default {
       positions:{
         category:{
           name:"Grocery",
-          id:"1"
+          id:"1",
+          to:"/"
         },
         subcategory_name:'Fruits',
       }
@@ -134,6 +137,19 @@ export default {
     },
     to_right(){
       this.right_bool = !this.right_bool;
+    },
+    copyLink(mytext){
+      navigator.clipboard.writeText(mytext);
+      let time = true;
+      const copy = document.querySelectorAll(".copyLink");
+      copy[0].style.display = 'none';
+      copy[1].style.display = 'block';
+      const stop = setInterval(function(){
+        copy[0].style.display = 'block';
+        copy[1].style.display = 'none';
+
+        clearInterval(stop);
+      },3000)
     }
   }
 }

@@ -124,17 +124,21 @@
           <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerSearch.svg" alt="headerSearch"></div>
         </label>
         <div class="header_bottom_box">
-          <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCart.svg" alt="headerCart"></div>
-          <div class="header_bottom_box_text">{{$t('cart')}}</div>
+          <span style="display:flex; align-items:center"  @click="openCart">
+            <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCart.svg" alt="headerCart"></div>
+            <div class="header_bottom_box_text">{{$t('cart')}}</div>
+          </span>
           <div class="active"></div>
-          <div class="cart">
+          <div class="cart" v-if="isOpen">
             <div class="cart_cube1"></div>
             <div class="cart_cube2"></div>
 
             <div class="cart_header">
               <div class="cart_header_left">Shopping Cart</div>
-              <div class="cart_header_left">3 item</div>
+              <div class="cart_header_right" @click="closeCart"><img src="~/assets/images/icons/close.svg" alt="close cart"></div>
             </div>
+
+            <hr> 
 
             <div class="cart_product">
               <div class="cart_product_image">
@@ -143,7 +147,31 @@
               <div class="cart_product_info">
                 <div class="cart_product_info_name">Almaly çizkeýk tagamly sufle "Attache" 1 kg</div>
                 <div class="cart_product_info_bottom">
-                  <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}</div>
+                  <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}:<span>11</span></div>
+                  <div class="cart_product_info_bottom_price">8.00 manat</div>
+                </div>
+              </div>
+            </div>
+            <div class="cart_product">
+              <div class="cart_product_image">
+                <img src="~/assets/images/deleteImages/product.png" alt="product">
+              </div>
+              <div class="cart_product_info">
+                <div class="cart_product_info_name">Almaly çizkeýk tagamly sufle "Attache" 1 kg</div>
+                <div class="cart_product_info_bottom">
+                  <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}:<span>11</span></div>
+                  <div class="cart_product_info_bottom_price">8.00 manat</div>
+                </div>
+              </div>
+            </div>
+            <div class="cart_product">
+              <div class="cart_product_image">
+                <img src="~/assets/images/deleteImages/product.png" alt="product">
+              </div>
+              <div class="cart_product_info">
+                <div class="cart_product_info_name">Almaly çizkeýk tagamly sufle "Attache" 1 kg</div>
+                <div class="cart_product_info_bottom">
+                  <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}:<span>11</span></div>
                   <div class="cart_product_info_bottom_price">8.00 manat</div>
                 </div>
               </div>
@@ -152,10 +180,10 @@
             <div class="cart_bottom">
               <div class="cart_bottom_header">
                 <div class="cart_bottom_header_title">Total:</div>
-                <div class="cart_bottom_header_price">234 manat</div>
+                <div class="cart_bottom_header_title">234 manat</div>
               </div>
               <div class="cart_bottom_buttons">
-                <div class="cart_bottom_buttons_white">Go to cart</div>
+                <div class="cart_bottom_buttons_white" @click="closeCart(),$router.push('/cart')">Go to cart</div>
                 <div class="cart_bottom_buttons_green">Order</div>
               </div>
             </div>
@@ -171,6 +199,7 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   data(){
     return { 
+      isOpen:false
     }
   },
   computed: {
@@ -189,6 +218,12 @@ export default {
       openDropdownWithName: 'dropdowns/openDropdownWithName',
       closeDropdownWithName: 'dropdowns/closeDropdownWithName',
     }),
+    openCart(){
+      this.isOpen = true;
+    },
+    closeCart(){
+      this.isOpen = false;
+    }
   }
 }
 </script>
