@@ -93,6 +93,7 @@ export default {
   components: { Breadcrumb },
   data(){
     return{
+      // windowSize:window.innerHeight,
       positions:{
         category:{
           name:"Shopping cart",
@@ -100,6 +101,21 @@ export default {
           to:"/cart"
         },
       }
+    }
+  },
+  mounted(){
+    this.resizeWindow();
+    window.addEventListener('resize',function(){
+      const height = window.innerHeight-462;
+      const element = document.querySelector('.cartPage');
+      element.style.minHeight = height+'px';
+    })
+  },
+  methods:{
+    resizeWindow(){
+      const height = window.innerHeight-462;
+      const element = document.querySelector('.cartPage');
+      element.style.minHeight = height+'px';
     }
   }
 }

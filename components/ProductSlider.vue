@@ -8,7 +8,7 @@
     >
       <swiper-slide v-for="(i , index) in 10" :key="index">
         <div class="news__slider__item">
-          <Product />
+          <LazyProduct />
         </div>
       </swiper-slide>
       <div slot="button-prev" style="display:none"  class="swiper-button-prev prevv"></div>

@@ -44,7 +44,7 @@
             </div>
           </div>
         </div>
-        <ProductSlider :left_bool="left_bool" :right_bool="right_bool"/>
+        <LazyProductSlider :left_bool="left_bool" :right_bool="right_bool"/>
       </div>
   </div>
 </template>

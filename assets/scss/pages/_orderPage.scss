@@ -1,24 +1,127 @@
 .orderPage{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
   &_title{
     font-weight: 600;
     letter-spacing: 1px;
     font-size: 18px;
+    margin-bottom: 16px;
   }
   &_label{
     font-size: 18px;
+    margin-bottom: 8px;
   }
   &_bigLabel{
     font-size: 20px;
+    margin-bottom: 16px;
   }
   &_input{
     background: #F5F5F5;
     border-radius: 16px;
     padding: 10px 16px;
     border: none;
+    font-size: 18px;
+    &::placeholder{
+      color: $lightgray;
+      font-size: 18px;
+    }
+  }
+  .col{
+    display: flex;
+    flex-direction: column;
   }
   &_left{
     background: #FCFCFC;
     box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
     border-radius: 8px;
+    width: 65%;
+    padding: 24px;
+    &_namePhone{
+      display: flex;
+      margin-bottom: 16px;
+      div{
+        width: 250px;
+      }
+      &_name{
+        margin-right: 40px;
+      }
+    }
+    &_position{
+      width: 540px;
+      margin-bottom: 16px;
+    }
+    &_note{
+      width: 540px;
+      margin-bottom: 16px;
+    }
+    &_bill{
+      margin-bottom: 26px;
+      div{
+        display: flex;
+        .billLabel{
+          display: flex;
+          margin-right: 40px;
+        }
+        label{
+          margin-right: 10px;
+          color:$lightgray;
+          cursor: pointer;
+          input{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    &_time{
+      &_buttons{
+        margin-bottom: 18px;
+        .timeButton{
+          background: #F5F5F5;
+          border-radius: 8px;
+          border: none;
+          padding: 8px 16px;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          color: $lightgray;
+          margin-right: 24px;
+          cursor: pointer;
+        }
+        .active{
+          color: $green;
+        }
+      }
+      &_clocks{
+        margin-bottom: 40px;
+        &_clock{
+          margin-bottom: 20px;
+          display: flex;
+          label{
+            cursor: pointer;
+            color: $lightgray;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    &_myself{
+      margin-bottom: 18px;
+      display: flex;
+      input{
+        margin-right: 10px;
+      }
+      label{
+        color: $lightgray;
+        cursor: pointer;
+      }
+      #take{
+        margin-right: 10px;
+      }
+    }
+    &_text{
+      font-size: 14px;
+    }
   }
+
 }

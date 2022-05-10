@@ -115,10 +115,10 @@
             </div>
           </div>
         </client-only>
-        <div class="header_bottom_box">
+        <nuxt-link to="/brands" class="header_bottom_box">
           <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerBrands.svg" alt="headerBrands"></div>
           <div class="header_bottom_box_text">{{$t('brand')}}</div>
-        </div>
+        </nuxt-link>
         <label class="header_bottom_box header_search">
           <input type="text" :placeholder="$t('search')">
           <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerSearch.svg" alt="headerSearch"></div>
