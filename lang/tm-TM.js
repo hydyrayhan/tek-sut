@@ -1,8 +1,8 @@
 export default {
   secured:"All our products are certificated",
   languageChanged:"Dil çalşyldy",
-  category:"Kategory",
-  brand:"Brand",
+  category:"KATEGORY",
+  brand:"BRAND",
   search:"Search for products",
   cart:"Sebet",
   workTime:"Ish wagty",

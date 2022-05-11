@@ -140,7 +140,6 @@ export default {
     },
     copyLink(mytext){
       navigator.clipboard.writeText(mytext);
-      let time = true;
       const copy = document.querySelectorAll(".copyLink");
       copy[0].style.display = 'none';
       copy[1].style.display = 'block';
