@@ -33,7 +33,6 @@ export default {
   continue:"Dowam et",
   cartEmpty:"Haryt ýok",
   startShopping:"Söwda ediň",
-  
   whoAndWhere:"Kime we nira eltip bermek",
   name:"Ady",
   phone:"Telefon belgisi",
@@ -47,4 +46,8 @@ export default {
   today:"Şu gün",
   tomorrow:"Ertir",
   IwillTake:"Özüm alyp gaýtýan",
+  notFind:"Haryt tapylmady",
+  seeAll:"Hemmesini gör",
+  result:"Netije",
+  sum:"Jemi",
 }

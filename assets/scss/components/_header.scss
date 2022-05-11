@@ -236,6 +236,7 @@
         padding: 10px 16px;
         border-radius: 8px;
         width: 40%;
+        position: relative;
         input{
           outline: none;
           border: none;
@@ -248,6 +249,69 @@
         }
         .header_bottom_box_icon{
           margin-right: 0px;
+        }
+        .searched{
+          background-color: #FCFCFC;
+          position: absolute;
+          left: 0;
+          top: 50px;
+          border-radius: 8px;
+          padding: 12px 16px;
+          width: 100%;
+          box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+          cursor: default;
+          &_notFind{
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: $lightgray;
+          }
+          &_find{
+            &_products{
+              &_product{
+                border-bottom: 1px solid #E2E0E0;
+                padding: 8px;
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+                .image{
+                  min-width: 60px;
+                  max-width: 60px;
+                  min-height: 60px;
+                  max-height: 60px;
+                  margin-right: 16px;
+                  img{
+                    width: 100%;
+                  }
+                }
+                .name{
+                  min-width: 50%;
+                  max-width: 50%;
+                  margin-right: 80px;
+                }
+                .prices{
+                  &_new{
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                  }
+                  &_old{
+                    color:$lightgray;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    font-size: 13px;
+                    text-decoration-line: line-through;
+                  }
+                }
+              }
+            }
+            &_bottom{
+              display: flex;
+              justify-content: space-between;
+              font-size: 13px;
+              a,span{
+                color: $gray;
+              }
+            }
+          }
         }
       }
     }

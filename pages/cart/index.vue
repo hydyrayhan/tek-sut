@@ -104,7 +104,9 @@ export default {
     }
   },
   mounted(){
-    this.resizeWindow();
+    const height = window.innerHeight-462;
+    const element = document.querySelector('.cartPage');
+    element.style.minHeight = height+'px';
     window.addEventListener('resize',function(){
       const height = window.innerHeight-462;
       const element = document.querySelector('.cartPage');
@@ -112,11 +114,7 @@ export default {
     })
   },
   methods:{
-    resizeWindow(){
-      const height = window.innerHeight-462;
-      const element = document.querySelector('.cartPage');
-      element.style.minHeight = height+'px';
-    }
+    
   }
 }
 </script>

@@ -33,6 +33,7 @@ export default {
   plugins: [
     { src: '~/plugins/v-dropdown-menu' },
     { src: '~/plugins/vue-awesome-swiper' },
+    { src: '~/plugins/v-click-outside' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

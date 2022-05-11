@@ -39,7 +39,7 @@ export default {
         },
         subcategory_name:'Brand',
       }
-    }
+    } 
   }
 }
 </script>

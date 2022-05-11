@@ -1,0 +1,23 @@
+.searchProducts{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  &_product{
+    width: 23%;
+    margin-right: 2.66%;
+    margin-bottom: 16px;
+    &:nth-child(4n){
+      margin-right: 0;
+    }
+  }
+}
+.searchPage_header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &_sum{
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+}
