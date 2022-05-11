@@ -1794,6 +1794,127 @@
   letter-spacing: 1px;
 }
 
+.static {
+  padding: 24px;
+  background-color: #FCFCFC;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.static_text {
+  color: #646464;
+  line-height: 24px;
+  font-size: 20px;
+}
+
+.static_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.static_left {
+  width: 50%;
+  margin-right: 100px;
+}
+
+.static_link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+}
+
+.static_link img {
+  margin-right: 10px;
+  min-width: 18px;
+  max-width: 18px;
+  min-height: 18px;
+  max-height: 18px;
+}
+
+.static_link span {
+  font-size: 18px;
+  color: #646464;
+}
+
+.static .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.static .input:nth-child(1) {
+  margin-right: 40px;
+}
+
+.static .input_label {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.static .input_input {
+  border-radius: 16px;
+  background-color: #F5F5F5;
+  border: none;
+  padding: 10px 16px;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.static .input_input:focus {
+  outline: 1px solid #8DC63F;
+}
+
+.static .input_input::-webkit-input-placeholder {
+  color: #AFAFAF;
+  font-size: 18px;
+}
+
+.static .input_input:-ms-input-placeholder {
+  color: #AFAFAF;
+  font-size: 18px;
+}
+
+.static .input_input::-ms-input-placeholder {
+  color: #AFAFAF;
+  font-size: 18px;
+}
+
+.static .input_input::placeholder {
+  color: #AFAFAF;
+  font-size: 18px;
+}
+
+.static .input_button {
+  background-color: #8DC63F;
+  width: 50%;
+  padding: 10px 0;
+  color: white;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;

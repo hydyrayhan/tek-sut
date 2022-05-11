@@ -1,0 +1,76 @@
+ .static{
+   padding: 24px;
+   background-color: #FCFCFC;
+   border-radius: 16px;
+   margin-bottom: 40px;
+   display: flex;
+   &_text{
+     color: $gray;
+     line-height: 24px;
+     font-size: 20px;
+   }
+   &_flex{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+   }
+   &_left{
+     width: 50%;
+     margin-right: 100px;
+   }
+   &_link{
+     display: flex;
+     align-items: center;
+     margin-bottom: 30px;
+     img{
+       margin-right: 10px;
+       min-width: 18px;
+       max-width: 18px;
+       min-height: 18px;
+       max-height: 18px;
+     }
+     span{
+       font-size: 18px;
+       color: $gray;
+     }
+   }
+
+   .input{
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+     &:nth-child(1){
+       margin-right: 40px;
+     }
+     &_label{
+       font-size: 18px;
+       margin-bottom: 8px;
+     }
+     &_input{
+      border-radius: 16px;
+      background-color: #F5F5F5;
+      border: none;
+      padding: 10px 16px;
+      font-size: 18px;
+      margin-bottom: 16px;
+      &:focus{
+        outline: 1px solid #8DC63F;
+      } 
+      &::placeholder{
+        color: $lightgray;
+        font-size: 18px;
+      }
+     }
+     &_button{
+       background-color: $green;
+       width: 50%;
+       padding: 10px 0;
+       color: white;
+       border-radius: 16px;
+       border: none;
+       font-size: 16px;
+       cursor: pointer;
+       margin-top: 16px;
+     }
+   }
+ }

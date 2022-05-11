@@ -9,8 +9,8 @@ export default {
   discount:"Discount",
   newProducts:"New products",
   wholesalers:"wholesalers",
-  aboutUs:"About us",
-  contact:"Contact us",
+  aboutUs:"Biz barada",
+  contact:"Biz bilen habarlaşmak",
   orderAd:"Order advice",
   usage:"Ulanyş düzgünleri",
   addCart:"Sebede goş",
@@ -50,4 +50,7 @@ export default {
   seeAll:"Hemmesini gör",
   result:"Netije",
   sum:"Jemi",
+  email:"Electron pochta",
+  canbeEmpty:"Boş goýup bilersiňiz",
+  send:"Ugratmak",
 }
