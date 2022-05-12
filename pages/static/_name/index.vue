@@ -25,7 +25,10 @@ export default {
     return{
       position:{
         category:{
-          name:"About us",
+          name:{
+            tm:"",
+            ru:""
+          },
           id:"1",
           to:"/brands"
         },
@@ -42,6 +45,22 @@ export default {
       const element = document.querySelector('.static_con');
       element.style.minHeight = height+'px';
     })
+    const page = this.$route.params.name;
+    let tm = ''
+    let ru = ''
+      // this.position.category.name.tm = 'Biz barada'
+    if(page === 'about'){
+      tm = 'Biz barada'
+      ru = 'About us'
+    }else if(page === 'order'){
+      tm = 'Ibermek we tölemek'
+      ru = 'Доставка и Оплата'
+    }else if(page === 'usage'){
+      tm = 'Ulanyş düzgünleri',
+      ru = 'Условия эксплуатации'
+    }
+    this.position.category.name.tm = tm;
+    this.position.category.name.ru = ru;
   },
 }
 </script>

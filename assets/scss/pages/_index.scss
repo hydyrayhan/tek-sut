@@ -3,6 +3,10 @@
   align-items: center;
   justify-content: space-between;
   margin: 20px 0;
+  &_name{
+    font-family: oswald;
+    letter-spacing: 1px;
+  }
   &_buttons{
     display: flex;
     align-items: center;

@@ -33,7 +33,10 @@ export default {
     return{
       position:{
         category:{
-          name:"Brands",
+          name:{
+            tm:"Brandtm",
+            ru:"Brandru"
+          },
           id:"1",
           to:"/brands"
         },

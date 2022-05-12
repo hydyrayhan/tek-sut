@@ -118,7 +118,10 @@ export default {
       checkboxvalue:false,
       position:{
         category:{
-          name:"Shopping cart",
+          name:{
+            tm:"Sebet",
+            ru:"Корзина",
+          },
           id:"1",
           to:"/order"
         },

@@ -96,7 +96,10 @@ export default {
       // windowSize:window.innerHeight,
       positions:{
         category:{
-          name:"Shopping cart",
+          name:{
+            tm:"Sebet",
+            ru:"Корзина",
+          },
           id:"1",
           to:"/cart"
         },

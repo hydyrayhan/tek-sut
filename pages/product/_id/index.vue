@@ -123,7 +123,10 @@ export default {
       right_bool:false,
       positions:{
         category:{
-          name:"Grocery",
+          name:{
+            tm:"Grocery",
+            ru:"Grocery"
+          },
           id:"1",
           to:"/"
         },

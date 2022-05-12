@@ -3,6 +3,11 @@
   src: url("../fonts/roboto/Roboto-Regular.ttf");
 }
 
+@font-face {
+  font-family: 'oswald';
+  src: url("../fonts/Oswald/static/Oswald-Regular.ttf");
+}
+
 .container {
   width: 95%;
   margin: 0 auto 0;
@@ -507,6 +512,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 8px 24px;
+  font-family: oswald;
 }
 
 .header .hiddenCategory .hiddenSubCategory {
@@ -834,6 +840,11 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 20px 0;
+}
+
+.category_header_name {
+  font-family: oswald;
+  letter-spacing: 1px;
 }
 
 .category_header_buttons {

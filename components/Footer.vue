@@ -32,10 +32,10 @@
                     </div>
                 </div>
                 <div class="footer_top_box">
-                    <nuxt-link to="/about" class="footer_top_box_link">{{$t('aboutUs')}}</nuxt-link>
+                    <nuxt-link to="/static/about" class="footer_top_box_link">{{$t('aboutUs')}}</nuxt-link>
                     <nuxt-link to="/contactUs" class="footer_top_box_link">{{$t('contact')}}</nuxt-link>
-                    <nuxt-link to="/" class="footer_top_box_link">{{$t('orderAd')}}</nuxt-link>
-                    <nuxt-link to="/" class="footer_top_box_link">{{$t('usage')}}</nuxt-link>
+                    <nuxt-link to="/static/order" class="footer_top_box_link">{{$t('orderAd')}}</nuxt-link>
+                    <nuxt-link to="/static/usage" class="footer_top_box_link">{{$t('usage')}}</nuxt-link>
                 </div>
             </div>
             <div class="footer_bottom"><img src="~/assets/images/icons/footerCopyRight.svg" alt="footerCopyRight"> 2022   e-сommerce.com. Все права защищены</div>

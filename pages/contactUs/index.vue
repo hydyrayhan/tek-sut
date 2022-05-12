@@ -63,11 +63,14 @@ export default {
       textareaValue:'',
       position:{
         category:{
-          name:"Contact Us",
+          name:{
+            tm:"Biz bilen habarlaşmak",
+            ru:"Связаться с нами",
+          }, 
           id:"1",
           to:"/brands"
         },
-      }
+      } 
     }
   },
   mounted(){
@@ -83,7 +86,7 @@ export default {
   methods:{
     textarea(){
       const number = document.querySelector("#textareaCount");
-      // console.log(this.textareaValue.length);
+      // console.log(this.textareaValue.length); 
       number.textContent = this.textareaValue.length;
     }
   }

@@ -22,7 +22,10 @@ export default {
     return{
       positions:{
         category:{
-          name:"Gozleg",
+          name:{
+            tm:"Gözleg",
+            ru:"Поиск"
+          },
           id:"1",
           to:"/search"
         },

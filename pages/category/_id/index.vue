@@ -25,7 +25,10 @@ export default {
     return{
       positions:{
         category:{
-          name:"Bla bla",
+          name:{
+            tm:"Category",
+            ru:"Category"
+          },
           id:"1",
           to:"/"
         },
