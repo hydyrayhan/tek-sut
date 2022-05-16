@@ -14,7 +14,6 @@ export const mutations = {
 
 export const actions = {
   openDropdownWithName({ state, commit }, name) {
-    console.log("Jfdkjls")
     commit('OPEN_DROPDOWN_WITH_NAME', name)
   },
 

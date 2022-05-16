@@ -48,104 +48,78 @@
           </div>
       </div>
     </div>
-    <div class="header_bottom">
+    <div class="header_bottom desktop">
+      <div class="mobileSearchBackground" @click="closeMobileSearch" v-if="searchBackground"></div>
       <div class="container">
+        <span class="mobile_header_left">
+          <div class="mobile_menu" style="width:20px">
+            <div class="mobile_menu_icon" v-if="!menuOpen" @click="openMenu"><img src="~/assets/images/icons/headerCategory.svg" alt="Mobilemenu"></div>
+            <div class="mobile_menu_icon" v-else @click="closeMenu"><img src="~/assets/images/icons/menuClose.svg" alt="menuClose"></div>
+          </div>
+          <div class="mobile_language">
+            <client-only>
+              <dropdown-menu :is-open="dropdowns.language">
+                <div slot="trigger" class="languageTrigger" @click="openDropdownWithName('language')">
+                  <div class="languageIcon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.99084 0.833252C4.93084 0.833252 0.833344 4.93992 0.833344 9.99992C0.833344 15.0599 4.93084 19.1666 9.99084 19.1666C15.06 19.1666 19.1667 15.0599 19.1667 9.99992C19.1667 4.93992 15.06 0.833252 9.99084 0.833252ZM16.3433 6.33325H13.6392C13.3458 5.18742 12.9242 4.08742 12.3742 3.06992C14.0608 3.64742 15.4633 4.82075 16.3433 6.33325ZM10 2.70325C10.7608 3.80325 11.3567 5.02242 11.7508 6.33325H8.24918C8.64334 5.02242 9.23918 3.80325 10 2.70325ZM2.90501 11.8333C2.75834 11.2466 2.66668 10.6324 2.66668 9.99992C2.66668 9.36742 2.75834 8.75325 2.90501 8.16659H6.00334C5.93001 8.77159 5.87501 9.37659 5.87501 9.99992C5.87501 10.6233 5.93001 11.2283 6.00334 11.8333H2.90501ZM3.65668 13.6666H6.36084C6.65418 14.8124 7.07584 15.9124 7.62584 16.9299C5.93918 16.3524 4.53668 15.1883 3.65668 13.6666ZM6.36084 6.33325H3.65668C4.53668 4.81159 5.93918 3.64742 7.62584 3.06992C7.07584 4.08742 6.65418 5.18742 6.36084 6.33325ZM10 17.2966C9.23918 16.1966 8.64334 14.9774 8.24918 13.6666H11.7508C11.3567 14.9774 10.7608 16.1966 10 17.2966ZM12.145 11.8333H7.85501C7.77251 11.2283 7.70834 10.6233 7.70834 9.99992C7.70834 9.37659 7.77251 8.76242 7.85501 8.16659H12.145C12.2275 8.76242 12.2917 9.37659 12.2917 9.99992C12.2917 10.6233 12.2275 11.2283 12.145 11.8333ZM12.3742 16.9299C12.9242 15.9124 13.3458 14.8124 13.6392 13.6666H16.3433C15.4633 15.1791 14.0608 16.3524 12.3742 16.9299ZM13.9967 11.8333C14.07 11.2283 14.125 10.6233 14.125 9.99992C14.125 9.37659 14.07 8.77159 13.9967 8.16659H17.095C17.2417 8.75325 17.3333 9.36742 17.3333 9.99992C17.3333 10.6324 17.2417 11.2466 17.095 11.8333H13.9967Z" fill="#262626"/>
+                    </svg>
+                  </div>
+                </div>
+                <div slot="body" class="body">
+                  <div class="lang" :class="currentLanguage.code == 'tm' ? 'active' : ''" @click="changeLanguage('tm')">Türkmen</div>
+                  <div class="lang" :class="currentLanguage.code == 'ru' ? 'active' : ''" @click="changeLanguage('ru')">Русский</div>
+                </div>
+              </dropdown-menu>
+            </client-only>
+          </div>
+        </span>
+
         <nuxt-link to="/" class="header_bottom_box">
           <div class="logo_icon">
             <img src="~/assets/images/logo.svg" alt="logo">
           </div>
           <div class="logo_text">Logo Example</div>
         </nuxt-link>
+
+        <span class="mobile_header_right">
+          <div class="mobile_search" @click="openMobileSearch"><img src="~/assets/images/icons/mobileSearch.svg" alt=""></div>
+
+          <nuxt-link to="/" class="mobile_cart"><div class="icon"><img src="~/assets/images/icons/headerCart.svg" alt="mobile cart"></div></nuxt-link>
+        </span>
+
+
         <client-only>
-          <div class="header_bottom_box header_category">
+          <div  class="header_bottom_box header_category">
             <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCategory.svg" alt="headerCategory"></div>
             <div class="header_bottom_box_text">{{$t('category')}}</div>
             <div class="hiddenCategory">
               <div class="cube"></div>
               <div class="cube2"></div>
               <div class="cube3"></div>
-              <nuxt-link to="/category/1" class="hiddenCategory_category">
+              <nuxt-link to="/category/1" class="hiddenCategory_category" v-for="(category , i) in categories" :key="i">
                 <div class="hiddenCategory_category_child">
                   <div class="child">
-                    Category 1 
-                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {{category[language.name]}}
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
                       <path d="M0.294956 10.59L1.70496 12L7.70496 6L1.70496 5.24537e-07L0.294955 1.41L4.87496 6L0.294956 10.59Z" fill="#AFAFAF"/>
                     </svg>
                   </div>
 
                   <div class="hiddenSubCategory">
-                    <nuxt-link to="/category/1?subcategory=1" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                    <nuxt-link to="/category/2?subcategory=2" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                    <nuxt-link to="/category/3?subcategory=3" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                  </div>
-                </div>
-              </nuxt-link>
-              <nuxt-link to="/category/2" class="hiddenCategory_category">
-                <div class="hiddenCategory_category_child">
-                  <div class="child">
-                    Category 1 
-                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0.294956 10.59L1.70496 12L7.70496 6L1.70496 5.24537e-07L0.294955 1.41L4.87496 6L0.294956 10.59Z" fill="#AFAFAF"/>
-                    </svg>
-                  </div>
-
-                  <div class="hiddenSubCategory">
-                    <nuxt-link to="/category/1?subcategory=1" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                    <nuxt-link to="/category/2?subcategory=2" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                    <nuxt-link to="/category/3?subcategory=3" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                  </div>
-                </div>
-              </nuxt-link>
-              <nuxt-link to="/catogory/3" class="hiddenCategory_category">
-                <div class="hiddenCategory_category_child">
-                  <div class="child">
-                    Category 1 
-                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0.294956 10.59L1.70496 12L7.70496 6L1.70496 5.24537e-07L0.294955 1.41L4.87496 6L0.294956 10.59Z" fill="#AFAFAF"/>
-                    </svg>
-                  </div>
-
-                  <div class="hiddenSubCategory">
-                    <nuxt-link to="/category/1?subcategory=1" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                    <nuxt-link to="/category/2?subcategory=2" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
-                    <nuxt-link to="/category/3?subcategory=3" class="hiddenSubCategory_subCategory">SubCategory 1</nuxt-link>
+                    <nuxt-link to="/category/1?subcategory=1" class="hiddenSubCategory_subCategory" v-for="(sub , j) in category.subcategories" :key="j">{{sub[language.name]}}</nuxt-link>
                   </div>
                 </div>
               </nuxt-link>
             </div>
           </div>
         </client-only>
-        <nuxt-link to="/brands" class="header_bottom_box">
+        <nuxt-link to="/brands" class="header_bottom_box brand">
           <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerBrands.svg" alt="headerBrands"></div>
           <div class="header_bottom_box_text">{{$t('brand')}}</div>
         </nuxt-link>
-        <label class="header_bottom_box header_search">
-          <input type="text" :placeholder="$t('search')" @keydown.enter="search()" v-model="searchValue">
-          <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerSearch.svg" alt="headerSearch"></div>
-          <div class="searched" v-if="searchedIsOpen" v-click-outside="closeSearchBar">
-            <div class="searched_notFind" v-if="notFound">{{$t('notFind')}}</div>
-
-            <div class="searched_find">
-              <div class="searched_find_products">
-                <nuxt-link to="/product/1" v-for="i in 3" :key="i" class="searched_find_products_product">
-                  <div class="image"><img src="~/assets/images/deleteImages/product.png" alt="product"></div>
-                  <div class="name">Almaly çizkeýk tagamly sufle "Attache"500 gr (±15 gr)</div>
-                  <div class="prices">
-                    <div class="prices_new">8.00 manat</div>
-                    <div class="prices_old">12.00 manat</div>
-                  </div>
-                </nuxt-link>
-              </div>
-              <div class="searched_find_bottom">
-                <span @click="clearSearch">
-                  <nuxt-link to="/search">{{$t('seeAll')}}</nuxt-link> 
-                </span>
-                <span>{{$t('result')}}:2</span>               
-              </div>
-            </div>
-          </div>
-        </label>
-        <div class="header_bottom_box">
+        <Search />
+        <div class="header_bottom_box header_cart">
           <span style="display:flex; align-items:center"  @click="openCart">
             <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCart.svg" alt="headerCart"></div>
             <div class="header_bottom_box_text">{{$t('cart')}}</div>
@@ -213,19 +187,28 @@
         </div>
       </div>
     </div>
+    <div class="header_bottom mobile">
+      <div class="mobileSearchBackground" @click="closeMobileSearch" v-if="searchBackground"></div>
+      <div class="container"><Search /></div>
+    </div>
+    <div class="mobile_menu_box">
+
+    </div>
+    <div class="mobile_menu_background"></div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import Search from "~/components/Search.vue"
 export default {
+  components:{Search},
   data(){
     return { 
       isOpen:false,
-      searchValue:'',
-      searchedIsOpen:false,
-      notFound:false,
       found:true,
+      searchBackground:false,
+      menuOpen:false,
     }
   },
   computed: {
@@ -236,6 +219,8 @@ export default {
     },
     ...mapGetters({
       dropdowns: 'dropdowns/dropdowns',
+      categories: 'category/category',
+      language: 'dynamicLang/language',
     }),
   },
   methods:{
@@ -250,22 +235,19 @@ export default {
     closeCart(){
       this.isOpen = false;
     },
-    search(){
-      const result = true;
-      this.searchedIsOpen = true;
-      if(result){
-
-      }else{
-      }
-
+    openMobileSearch(){
+      document.querySelector(".mobile").style.top="70px"
+      this.searchBackground = true;
     },
-    closeSearchBar(){
-      this.searchedIsOpen = false;
-      console.log("HEllmi men worked")
+    closeMobileSearch(){
+      document.querySelector(".mobile").style.top="0px"
+      this.searchBackground = false;
     },
-    clearSearch(){
-      this.closeSearchBar();
-      this.searchValue = '';
+    openMenu(){
+      this.menuOpen = true;
+    },
+    closeMenu(){
+      this.menuOpen = false;
     }
   }
 }

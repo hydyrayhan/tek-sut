@@ -4,8 +4,8 @@ export const actions = {
     try {
 
 
-      // await dispatch('rates/fetchRates')
-      // await dispatch('rates/fetchCurrencies')
+      await dispatch('category/fetchCategory')
+      await dispatch('dynamicLang/fetchLanguage') 
       // await dispatch('perfumes/fetchPerfumes')
       // await dispatch('filters/fetchSizes')
       // await dispatch('filters/fetchCategories')

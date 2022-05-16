@@ -1,3 +1,9 @@
+.default_header{
+  padding-top: 116px;
+  @include tablet{
+    padding-top: 55px;
+  }
+}
 .header{
   position: fixed;
   top:0;
@@ -6,6 +12,9 @@
   &_top{
     background: $green;
     padding: 13px 0;
+    @include tablet{
+      display: none;
+    }
     .container{
       display: flex;
       justify-content: space-between;
@@ -63,6 +72,60 @@
       }
     }
   }
+  .desktop{
+    position: absolute;
+    width: 100%;
+    @include tablet{
+      top: 0;
+    }
+    z-index: 10;
+    .mobileSearchBackground{
+      width: 100%;
+      height: 68px;
+      position: absolute;
+      top: 0;
+      background-color: red;
+      opacity: 0;
+      z-index: 100;
+    }
+    .header_search{
+      @include tablet{
+        display: none !important;
+      }
+    }
+  }
+  .mobile{
+    display: none;
+    background: none;
+    box-shadow: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: 0.2s;
+    .mobileSearchBackground{
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      background-color: red;
+      opacity: 0;
+    }
+    .container{
+      padding: 4px 0;
+      label{
+        transition: 0.2s;
+        input{
+          font-size: 12px;
+          &::placeholder{
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    @include tablet{
+      display: block;
+    }
+  }
   &_bottom{
     background-color: #F6F6F6;
     box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
@@ -72,6 +135,28 @@
       justify-content: space-between;
       padding: 16px 0;
       position: relative;
+      .mobile_header_left,.mobile_header_right{
+        display: none;
+        @include tablet{
+          display: flex;
+          align-items: center;
+          .icon{
+            display: flex;
+            align-items: center;
+          }
+        }
+        div{
+          cursor: pointer;
+        }
+        .mobile_menu, .mobile_search{
+          @include tablet{
+            margin-right: 50px;
+          }
+          @include mobile{
+            margin-right: 20px;
+          }
+        }
+      }
       .header_bottom_box{
         display: flex;
         align-items: center;
@@ -231,12 +316,26 @@
           letter-spacing: 1px;
         }
       }
+      .brand{
+        @include tablet{
+          display: none;
+        }
+      }
+      .header_cart{
+        @include tablet{
+          display: none;
+        }
+      }
       .header_search{
         background-color: #EDEDED;
         padding: 10px 16px;
         border-radius: 8px;
         width: 40%;
         position: relative;
+
+        @include tablet{
+          width: 100%;
+        }
         input{
           outline: none;
           border: none;
@@ -260,6 +359,9 @@
           width: 100%;
           box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
           cursor: default;
+          @include tablet{
+            top: 40px;
+          }
           &_notFind{
             font-weight: 600;
             letter-spacing: 1px;
@@ -272,6 +374,7 @@
                 padding: 8px;
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
                 margin-bottom: 8px;
                 .image{
                   min-width: 60px;
@@ -284,7 +387,7 @@
                   }
                 }
                 .name{
-                  min-width: 50%;
+                  // min-width: 50%;
                   max-width: 50%;
                   margin-right: 80px;
                 }
@@ -320,6 +423,9 @@
   
   .header_category{
     position: relative;
+    @include tablet{
+      display: none !important;
+    }
   }
   .header_category:hover{
     .hiddenCategory{
@@ -422,4 +528,47 @@
   color: $darkgreen !important;
   border-radius: 16px !important;
   box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2) !important;
+}
+
+.mobile_language{
+  display: flex;
+  align-items: center;
+  .languageTrigger{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .header_top_box_text{
+      margin: 0 10px;
+    }
+    .languageIcon{
+      display: flex;
+      align-items: center;
+    }
+  }
+  .v-dropdown-menu__container{
+    min-width: fit-content;
+    max-width: fit-content;
+    box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+    border-radius: 4px;
+    margin-left: -38px;
+    margin-top: 3px;
+  }
+  .body{
+    padding: 4px 0;
+    .lang{
+      cursor: pointer;
+      padding: 2px 0;
+      width: 95px;
+      color: $lightgray;
+      text-align: center;
+      font-size: 14px;
+      &:hover{
+        background: rgba(141, 198, 63, .4);
+      }
+    }
+    .active{
+      background: rgba(141, 198, 63, .4);
+      color: $gray;
+    }
+  }
 }

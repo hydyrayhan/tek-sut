@@ -1,0 +1,48 @@
+[
+  {
+    "category_id": 1,
+    "name_tm": "Eileen",
+    "name_ru": "Howgego",
+    "subcategories":[
+      {
+        "subcategory_id":1,
+        "name_tm":"Eileen",
+        "name_ru":"Howgego"
+      }
+    ]
+  },
+  {
+    "category_id": 2,
+    "name_tm": "Eileen2",
+    "name_ru": "Howgego2",
+    "subcategories":[
+      {
+        "subcategory_id":2,
+        "name_tm":"Eileen2",
+        "name_ru":"Howgego2"
+      }
+    ]
+  },
+  {
+    "category_id": 3,
+    "name_tm": "Eileen3",
+    "name_ru": "Howgego3",
+    "subcategories":[
+      {
+        "subcategory_id":3,
+        "name_tm":"Eileen3",
+        "name_ru":"Howgego3"
+      },
+      {
+        "subcategory_id":32,
+        "name_tm":"Eileen32",
+        "name_ru":"Howgego32"
+      },
+      {
+        "subcategory_id":33,
+        "name_tm":"Eileen33",
+        "name_ru":"Howgego332"
+      }
+    ]
+  }
+]
