@@ -53,8 +53,8 @@
       <div class="container">
         <span class="mobile_header_left">
           <div class="mobile_menu" style="width:20px">
-            <div class="mobile_menu_icon" v-if="!menuOpen" @click="openMenu"><img src="~/assets/images/icons/headerCategory.svg" alt="Mobilemenu"></div>
-            <div class="mobile_menu_icon" v-else @click="closeMenu"><img src="~/assets/images/icons/menuClose.svg" alt="menuClose"></div>
+            <button class="mobile_menu_icon" v-if="!menuOpen" @click="openMenu"><img src="~/assets/images/icons/headerCategory.svg" alt="Mobilemenu"></button>
+            <button class="mobile_menu_icon" v-else @click="closeMenu"><img src="~/assets/images/icons/menuClose.svg" alt="menuClose"></button>
           </div>
           <div class="mobile_language">
             <client-only>
@@ -85,7 +85,7 @@
         <span class="mobile_header_right">
           <div class="mobile_search" @click="openMobileSearch"><img src="~/assets/images/icons/mobileSearch.svg" alt=""></div>
 
-          <nuxt-link to="/" class="mobile_cart"><div class="icon"><img src="~/assets/images/icons/headerCart.svg" alt="mobile cart"></div></nuxt-link>
+          <nuxt-link to="/cart" class="mobile_cart"><div class="icon"><img src="~/assets/images/icons/headerCart.svg" alt="mobile cart"></div></nuxt-link>
         </span>
 
 
@@ -136,39 +136,17 @@
 
             <hr> 
 
-            <div class="cart_product">
-              <div class="cart_product_image">
-                <img src="~/assets/images/deleteImages/product.png" alt="product">
-              </div>
-              <div class="cart_product_info">
-                <div class="cart_product_info_name">Almaly çizkeýk tagamly sufle "Attache" 1 kg</div>
-                <div class="cart_product_info_bottom">
-                  <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}:<span>11</span></div>
-                  <div class="cart_product_info_bottom_price">8.00 manat</div>
+            <div class="cart_productCon">
+              <div class="cart_product" v-for="i in 10" :key="i">
+                <div class="cart_product_image">
+                  <img src="~/assets/images/deleteImages/product.png" alt="product">
                 </div>
-              </div>
-            </div>
-            <div class="cart_product">
-              <div class="cart_product_image">
-                <img src="~/assets/images/deleteImages/product.png" alt="product">
-              </div>
-              <div class="cart_product_info">
-                <div class="cart_product_info_name">Almaly çizkeýk tagamly sufle "Attache" 1 kg</div>
-                <div class="cart_product_info_bottom">
-                  <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}:<span>11</span></div>
-                  <div class="cart_product_info_bottom_price">8.00 manat</div>
-                </div>
-              </div>
-            </div>
-            <div class="cart_product">
-              <div class="cart_product_image">
-                <img src="~/assets/images/deleteImages/product.png" alt="product">
-              </div>
-              <div class="cart_product_info">
-                <div class="cart_product_info_name">Almaly çizkeýk tagamly sufle "Attache" 1 kg</div>
-                <div class="cart_product_info_bottom">
-                  <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}:<span>11</span></div>
-                  <div class="cart_product_info_bottom_price">8.00 manat</div>
+                <div class="cart_product_info">
+                  <div class="cart_product_info_name">Almaly çizkeýk tagamly sufle "Attache" 1 kg</div>
+                  <div class="cart_product_info_bottom">
+                    <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}:<span>11</span></div>
+                    <div class="cart_product_info_bottom_price">8.00 manat</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -192,9 +170,54 @@
       <div class="container"><Search /></div>
     </div>
     <div class="mobile_menu_box">
-
+      <div class="menu_list">
+        <span class="listSpan">
+          <div class="icon">
+            <img src="~/assets/images/icons/headerCategory.svg" alt="headerCategory">
+          </div>
+          <div class="text">{{$t('category')}}</div>
+        </span>
+      </div>
+      <div class="menu_list" v-for="(category , i ) in categories" :key="i">
+        <div class="sidenav" >
+          <button class="dropdown-btn"><span>{{category[language.name]}}</span> 
+            <!-- <img src="~/assets/images/icons/menuDropDownArrow.svg" alt=""> -->
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.416626 0.708252L4.99996 5.29159L9.58329 0.708252H0.416626Z" fill="#AFAFAF"/>
+            </svg>
+          </button>
+          <div class="dropdown-container">
+            <a href="#" class="subCategory" v-for="(sub , i) in category.subcategories" :key="i">{{sub[language.name]}}</a>
+          </div>
+        </div>
+      </div>
+      <nuxt-link to="/brands" class="menu_list">
+        <span class="listSpan">
+          <div class="icon"><img src="~/assets/images/icons/headerBrands.svg" style="width:18px" alt="headerBrands"></div>
+          <div class="text">{{$t('brand')}}</div>
+        </span>
+      </nuxt-link>
+      <div class="menu_bottom">
+        <div class="menu_bottom_text top"><span class="text">Is wagty 09:00-19:00</span></div>
+        <div class="menu_bottom_text middle">
+          <img src="~/assets/images/icons/footerInsta.svg" style="width:12px" alt="footerInsta">
+          <span class="text">@ecommerce</span>
+        </div>
+        <div class="menu_bottom_text middle">
+          <img src="~/assets/images/icons/footerEmail.svg" style="width:12px" alt="footerEmail">
+          <span class="text">ecommerce@gmail.com</span>
+        </div>
+        <div class="menu_bottom_text middle">
+          <img src="~/assets/images/icons/footerCall.svg" style="width:12px" alt="footerCall">
+          <span class="text">+993 64 64 64 64</span>
+        </div>
+        <div class="menu_bottom_text bottom">
+          <img src="~/assets/images/icons/graySecured.svg" style="width:12px" alt="graySecured">
+          <span class="text">All our products are certificated</span>
+        </div>
+      </div>
     </div>
-    <div class="mobile_menu_background"></div>
+    <div class="mobile_menu_background" @click="closeMenu"></div>
   </div>
 </template>
 
@@ -209,6 +232,22 @@ export default {
       found:true,
       searchBackground:false,
       menuOpen:false,
+    }
+  },
+  mounted(){
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+        } else {
+          dropdownContent.style.display = "block";
+        }
+      });
     }
   },
   computed: {
@@ -245,15 +284,81 @@ export default {
     },
     openMenu(){
       this.menuOpen = true;
+      document.querySelector(".mobile_menu_box").style.left = "0";
+      document.querySelector(".mobile_menu_background").style.left = "0";
+      
     },
     closeMenu(){
       this.menuOpen = false;
+      document.querySelector(".mobile_menu_box").style.left = "-101%";
+      document.querySelector(".mobile_menu_background").style.left = "-100%";
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.mobile_menu_background{
+  position: absolute;
+  top: 0;
+  left: -100%;
+  background: #8DC63F;
+  opacity: 0.3;
+  width: 100%;
+  height: 100vh;
+  cursor: pointer;
+}
+.sidenav {
+  width: 100%;
+}
 
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  display: block;
+}
+.dropdown-btn{
+  background: none;
+  border: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 0px;
+  span{
+    font-size: 15px;
+  }
+}
+/* On mouse-over */
+// .sidenav a:hover, .dropdown-btn:hover {
+// }
+
+
+/* Add an active class to the active dropdown button */
+.active {
+  span{
+    color: #006838;
+  }
+  svg{
+    transform: rotate(180deg);
+    path{
+      fill: #006838;
+    }
+  }
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  a{
+    font-size: 14px;
+    padding: 12px 10px;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    border-top: 1px solid #E2E0E0;
+    &:hover{
+      background: #f3f3f3;
+    }
+  }
+}
 </style>
-

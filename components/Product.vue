@@ -18,7 +18,9 @@
     </nuxt-link>
     <div class="product_addBtn">
       <img src="~/assets/images/icons/addCart.svg" alt="">
-      {{$t('addCart')}}
+      <span>
+       {{$t('addCart')}}
+      </span>
     </div>
   </div>
 </template>

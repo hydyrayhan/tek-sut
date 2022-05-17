@@ -6,6 +6,9 @@
       display: flex;
       justify-content: space-between;
       padding: 0 20px;
+      @include mobile{
+        display: none;
+      }
 
       &_box{
         display: flex;
@@ -42,8 +45,45 @@
       margin-top: 35px;
       font-size: 16px;
       font-weight: 500;
+      @include mobile{
+        display: none;
+      }
       img{
         margin-right: 10px;
+      }
+    }
+    .mobile_footer{
+      display: none;
+      @include mobile{
+        display: block;
+      }
+      .right{
+        margin-right: 40px;
+      }
+      &_top{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .footer_bottom{
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+      }
+    }
+    .footer_top_box.middle{
+      margin: 0 auto;
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+    .footer_top_box_link.address{
+      margin-bottom: 20px;
+    }
+    .footer_top_box_link{
+      margin-top: 12px;
+      font-size: 14px;
+      &_text{
+        font-size: 14px;
       }
     }
   }

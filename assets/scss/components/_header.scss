@@ -148,6 +148,10 @@
         div{
           cursor: pointer;
         }
+        .mobile_menu_icon{
+          border: none;
+          cursor: pointer;
+        }
         .mobile_menu, .mobile_search{
           @include tablet{
             margin-right: 50px;
@@ -223,6 +227,12 @@
             margin-bottom: 16px;
             border: none;
             border-bottom: 1px solid #E2E0E0;
+          }
+          .cart_productCon{
+            height: 50vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 10px;
           }
           .cart_product{
             display: flex;
@@ -519,6 +529,60 @@
       position: absolute;
       top: -20px;
       z-index: -3;
+    }
+  }
+  .mobile_menu_box{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+    position: absolute;
+    display: none;
+    top: 68px;
+    height: calc(100vh - 68px);
+    width: 75%;
+    padding: 16px 8px;
+    z-index: 10;
+    left: -101%;
+    transition: 0.4s;
+    overflow-y: auto;
+    @include tablet{
+      display: block;
+    }
+    .menu_list{
+      @include flex(row, flex-start);
+      width: 100%;
+      padding: 0px 10px;
+      border-bottom: 1px solid #E2E0E0;
+      .listSpan{
+        @include flex();
+        padding: 12px 0;
+      }
+      .dropdown-btn{
+        span{
+          font-family: oswald;
+        }
+      }
+      .icon{
+        margin-right: 10px;
+        @include flex;
+      }
+      .text{
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 15px;
+      }
+    }
+    .menu_bottom{
+      margin-top: 12px;
+      .menu_bottom_text{
+        @include flex(row, flex-start);
+        padding: 6px 8px;
+        img{
+          margin-right: 10px;
+        }
+        .text{
+          font-size: 12px;
+        }
+      }
     }
   }
 }

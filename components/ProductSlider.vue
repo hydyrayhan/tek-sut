@@ -14,6 +14,26 @@
       <div slot="button-prev" style="display:none"  class="swiper-button-prev prevv"></div>
       <div slot="button-next" style="display:none"  class="swiper-button-next nextt"></div>
     </swiper>
+    <swiper
+      class="swiper news__slider products products_tablet"
+      :options="bannerSliderOptionsTablet"
+      ref="categorySwiper"
+      @slideChange="onSlide"
+    >
+      <swiper-slide v-for="(i , index) in 10" :key="index">
+        <div class="news__slider__item">
+          <LazyProduct />
+        </div>
+      </swiper-slide>
+      <div slot="button-prev" style="display:none"  class="swiper-button-prev prevv"></div>
+      <div slot="button-next" style="display:none"  class="swiper-button-next nextt"></div>
+    </swiper>
+
+    <div class="products_mobile">
+      <div class="mobile_products">
+        <LazyProduct v-for="i in 4" :key="i"/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -27,6 +47,14 @@ export default {
       bannerSliderOptions: {
         spaceBetween: 30,
         slidesPerView: 4,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      },
+      bannerSliderOptionsTablet: {
+        spaceBetween: 30,
+        slidesPerView: 3,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',

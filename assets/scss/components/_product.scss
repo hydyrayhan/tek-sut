@@ -10,6 +10,10 @@
     width: 100%;
     padding: 5px;
     border-radius: 8px;
+    @include tablet{
+      border-radius: 4px;
+      padding-bottom: 0;
+    }
     img{
       width: 100%;
       max-height: 250px;
@@ -25,31 +29,57 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    @include tablet{
+      font-size: 14px;
+      margin-bottom: 5px;
+      padding: 0 10px;
+      line-height: 16px;
+    }
   }
   &_rating{
     display: flex;
     align-items: center;
     padding: 0 15px;
     margin-bottom: 10px;
+    @include tablet{
+      padding: 0 10px;
+    }
     &_stars{
       margin-right: 10px;
+      @include tablet{
+        margin-right: 8px;
+        img{
+          width: 13px;
+        }
+      }
     }
     &_count{
       font-size: 14px;
       color: $lightgray;
       font-weight: 500;
       line-height: 16px;
+      @include tablet{
+        font-size: 13px;
+      }
     }
   }
   &_prices{
     display: flex;
     align-items: center;
     padding: 0 15px;
+    @include tablet{
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      float: left;
+    }
     &_new{
       font-weight: 600;
       line-height: 20px;
       font-size: 17px;
       margin-right: 10px;
+      @include tablet{
+        font-size: 16px;
+      }
     }
     &_old{
       font-size: 14px;
@@ -57,11 +87,13 @@
       line-height: 17px;
       font-weight: 500;
       text-decoration-line: line-through;
+      @include tablet{
+        font-size: 12px;
+      }
     }
   }
   &_addBtn{
     background-color: $green;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,11 +101,25 @@
     padding: 12px 0;
     border-radius: 16px;
     cursor: pointer;
+    @include tablet{
+      border-radius: 4px;
+      padding: 6px;
+      width: fit-content;
+      span{
+        display: none;
+      }
+    }
+    span{
+      color: white;
+    }
     &:hover{
       background-color: $darkgreen;
     }
     img{
       margin-right: 25px;
+      @include tablet{
+        margin-right: 0;
+      }
     }
   }
   &_new{
@@ -84,6 +130,11 @@
     border-radius: 8px;
     top: 5px;
     left: 5px;
+    @include tablet{
+      font-size: 10px;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
   }
   &_discount{
     background: $red;
@@ -93,5 +144,11 @@
     border-radius: 8px;
     top: 40px;
     left: 5px;
+    @include tablet{
+      font-size: 10px;
+      padding: 3px 6px;
+      border-radius: 4px;
+      top: 26px;
+    }
   }
 }

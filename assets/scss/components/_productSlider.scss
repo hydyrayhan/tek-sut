@@ -1,0 +1,34 @@
+.product_slider_res{
+  .products_desk{
+    @include tablet{
+      display: none;
+    }
+  }
+  .products_tablet{
+    display: none;
+    @include tablet{
+      display: block;
+    }
+    @include mobile{
+      display: none;
+    }
+  }
+  .products_mobile{
+    display: none;
+    @include mobile{
+      display: block;
+    }
+    .mobile_products{
+      display: flex;
+      flex-wrap: wrap;
+      .product{
+        width: 48%;
+        margin-right: 4%;
+        margin-bottom: 10px;
+        &:nth-child(2n){
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
