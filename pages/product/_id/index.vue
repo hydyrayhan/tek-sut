@@ -45,27 +45,29 @@
           </span>
         </div>
 
-        <div class="productPage_info_priceRate">
-          <div class="productPage_info_priceRate_price">
-            <div class="productPage_info_priceRate_price_new">8.00 manat</div>
-            <div class="productPage_info_priceRate_price_old">12.00 manat</div>
-          </div>
-          <div class="productPage_info_priceRate_rate">
-            <div class="productPage_info_priceRate_rate_stars">
-              <div class="productPage_info_priceRate_rate_stars_star" v-for="i in 5" :key="i">
-                <img src="~/assets/images/icons/grayStar.svg" alt="">
-              </div>
+        <span class="for_mobile_res">
+          <div class="productPage_info_priceRate">
+            <div class="productPage_info_priceRate_price">
+              <div class="productPage_info_priceRate_price_new">8.00 manat</div>
+              <div class="productPage_info_priceRate_price_old">12.00 manat</div>
             </div>
-            <div class="productPage_info_priceRate_rate_count">(11)</div>
+            <div class="productPage_info_priceRate_rate">
+              <div class="productPage_info_priceRate_rate_stars">
+                <div class="productPage_info_priceRate_rate_stars_star" v-for="i in 5" :key="i">
+                  <img src="~/assets/images/icons/grayStar.svg" alt="">
+                </div>
+              </div>
+              <div class="productPage_info_priceRate_rate_count">(11)</div>
+            </div>
           </div>
-        </div>
 
-        <div class="productPage_info_quantity">
-          <div class="productPage_info_quantity_title">{{$t('quantity')}}</div>
-          <div class="productPage_info_quantity_btn"><img src="~/assets/images/icons/minus.svg" alt="minus"></div>
-          <div class="productPage_info_quantity_quantity">1</div>
-          <div class="productPage_info_quantity_btn"><img src="~/assets/images/icons/plus.svg" alt="plus"></div>
-        </div>
+          <div class="productPage_info_quantity">
+            <div class="productPage_info_quantity_title">{{$t('quantity')}}</div>
+            <div class="productPage_info_quantity_btn"><img src="~/assets/images/icons/minus.svg" alt="minus"></div>
+            <div class="productPage_info_quantity_quantity">1</div>
+            <div class="productPage_info_quantity_btn"><img src="~/assets/images/icons/plus.svg" alt="plus"></div>
+          </div>
+        </span>
 
         <div class="productPage_info_buyBtns">
           <div class="productPage_info_buyBtns_btn"><img src="~/assets/images/icons/addCart.svg" alt="">{{$t('addCart')}}</div>

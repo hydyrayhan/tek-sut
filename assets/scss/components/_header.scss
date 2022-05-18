@@ -144,6 +144,9 @@
             display: flex;
             align-items: center;
           }
+          .mobile_search{
+            @include flex;
+          }
         }
         div{
           cursor: pointer;

@@ -53,8 +53,12 @@
       <div class="container">
         <span class="mobile_header_left">
           <div class="mobile_menu" style="width:20px">
-            <button class="mobile_menu_icon" v-if="!menuOpen" @click="openMenu"><img src="~/assets/images/icons/headerCategory.svg" alt="Mobilemenu"></button>
-            <button class="mobile_menu_icon" v-else @click="closeMenu"><img src="~/assets/images/icons/menuClose.svg" alt="menuClose"></button>
+            <button class="mobile_menu_icon" v-if="!menuOpen" @click="openMenu" style="background:none">
+              <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.25 5.0925L0.75 5.08333V6.91667H17.25V5.0925ZM0.75 9.66667H11.75V11.5H0.75V9.66667ZM17.25 0.5H0.75V2.3425L17.25 2.33333V0.5Z" fill="#262626"/>
+              </svg>
+            </button>
+            <button class="mobile_menu_icon" style="background:none" v-else @click="closeMenu"><img src="~/assets/images/icons/menuClose.svg" alt="menuClose"></button>
           </div>
           <div class="mobile_language">
             <client-only>
@@ -181,13 +185,12 @@
       <div class="menu_list" v-for="(category , i ) in categories" :key="i">
         <div class="sidenav" >
           <button class="dropdown-btn"><span>{{category[language.name]}}</span> 
-            <!-- <img src="~/assets/images/icons/menuDropDownArrow.svg" alt=""> -->
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0.416626 0.708252L4.99996 5.29159L9.58329 0.708252H0.416626Z" fill="#AFAFAF"/>
             </svg>
           </button>
           <div class="dropdown-container">
-            <a href="#" class="subCategory" v-for="(sub , i) in category.subcategories" :key="i">{{sub[language.name]}}</a>
+            <nuxt-link to="/category/1" class="subCategory" v-for="(sub , i) in category.subcategories" :key="i">{{sub[language.name]}}</nuxt-link>
           </div>
         </div>
       </div>
@@ -248,6 +251,11 @@ export default {
           dropdownContent.style.display = "block";
         }
       });
+    }
+  },
+  watch:{
+    $route(){
+      this.closeMenu();
     }
   },
   computed: {
