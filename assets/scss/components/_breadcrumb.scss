@@ -2,6 +2,9 @@
   display: flex;
   margin: 24px 0 20px 0;
   width:fit-content;
+  @include mobile{
+    margin: 24px 0 14px 0;
+  }
   div{
     margin-right: 18px;
     font-size: 14px;

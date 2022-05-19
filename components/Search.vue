@@ -7,14 +7,16 @@
 
       <div class="searched_find">
         <div class="searched_find_products">
-          <nuxt-link to="/product/1" v-for="i in 3" :key="i" class="searched_find_products_product">
-            <div class="image"><img src="~/assets/images/deleteImages/product.png" alt="product"></div>
-            <div class="name">Almaly çizkeýk tagamly sufle "Attache"500 gr (±15 gr)</div>
-            <div class="prices">
-              <div class="prices_new">8.00 manat</div>
-              <div class="prices_old">12.00 manat</div>
-            </div>
-          </nuxt-link>
+          <span @click="closeSearchBar">
+            <nuxt-link to="/product/1" v-for="i in 3" :key="i" class="searched_find_products_product">
+              <div class="image"><img src="~/assets/images/deleteImages/product.png" alt="product"></div>
+              <div class="name">Almaly çizkeýk tagamly sufle "Attache"500 gr (±15 gr)</div>
+              <div class="prices">
+                <div class="prices_new">8.00 manat</div>
+                <div class="prices_old">12.00 manat</div>
+              </div>
+            </nuxt-link>
+          </span>
         </div>
         <div class="searched_find_bottom">
           <span @click="clearSearch">

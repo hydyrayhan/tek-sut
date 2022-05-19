@@ -24,12 +24,37 @@
         <div class="productPage_code">{{$t('productCode')}}: ST7758</div>
       </div>
 
+      <div class="productPage_image_mobile">
+        <swiper
+          class="swiper news__slider"
+          :options="bannerSliderOptions"
+        >
+          <swiper-slide>
+            <nuxt-link to="/" class="news__slider__item"> 
+                <div class="news__slider__item__image">
+                  <!-- <img v-bind:src="$config.url+'/'+i.image" alt=""> -->
+                  <img src="~/assets/images/deleteImages/product.png" alt="">
+                </div>
+            </nuxt-link>
+            </swiper-slide>
+          <swiper-slide>
+            <nuxt-link to="/" class="news__slider__item"> 
+                <div class="news__slider__item__image">
+                  <!-- <img v-bind:src="$config.url+'/'+i.image" alt=""> -->
+                  <img src="~/assets/images/deleteImages/banner.png" alt="">
+                </div>
+            </nuxt-link>
+            </swiper-slide>
+            <div slot="pagination" class="swiper-pagination"></div>
+        </swiper>
+      </div>
+
       <div class="productPage_info">
         <h2 class="productPage_info_subname">Fruits</h2>
 
         <div class="productPage_info_name">
           <span id="copyText" ref="mylink">
-            Almaly çizkeýk tagamly sufle "Attache"500 gr (±15 gr) 
+            Almaly çizkeýk tagamly sufle "Attache" 500 gr (±15 gr) 
           </span>
           <span class="copyLink" @click="copyLink('Almaly çizkeýk tagamly sufle `Attache`500 gr (±15 gr)')">
             <svg width="16" height="22" viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -111,6 +136,8 @@
       </div>
       <ProductSlider :left_bool="left_bool" :right_bool="right_bool"/>
     </div>
+    <div id="containerId">Aymuhammetjan</div>
+    
   </div>
 </template>
 
@@ -133,7 +160,18 @@ export default {
           to:"/"
         },
         subcategory_name:'Fruits',
-      }
+      },
+      bannerSliderOptions: {
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        autoplay: {
+          delay: 3000,
+        },
+      },
     }
   },
   methods:{
@@ -145,6 +183,7 @@ export default {
     },
     copyLink(mytext){
       navigator.clipboard.writeText(mytext);
+
       const copy = document.querySelectorAll(".copyLink");
       copy[0].style.display = 'none';
       copy[1].style.display = 'block';

@@ -162,7 +162,7 @@
               </div>
               <div class="cart_bottom_buttons">
                 <div class="cart_bottom_buttons_white" @click="closeCart(),$router.push('/cart')">Go to cart</div>
-                <div class="cart_bottom_buttons_green">Order</div>
+                <div class="cart_bottom_buttons_green" @click="closeCart(),$router.push('/order')">Order</div>
               </div>
             </div>
           </div>

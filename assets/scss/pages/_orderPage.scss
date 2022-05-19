@@ -37,6 +37,9 @@
     border-radius: 8px;
     width: 65%;
     padding: 24px;
+    @include tablet{
+      width: 100%;
+    }
     &_namePhone{
       display: flex;
       margin-bottom: 16px;
