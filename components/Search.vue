@@ -22,7 +22,7 @@
           <span @click="clearSearch">
             <nuxt-link to="/search">{{$t('seeAll')}}</nuxt-link> 
           </span>
-          <span>{{$t('result')}}:2</span>               
+          <span>{{$t('result')}}:2</span>
         </div>
       </div>
     </div>
@@ -55,6 +55,7 @@ export default {
     clearSearch(){
       this.closeSearchBar();
       this.searchValue = '';
+      this.$emit("closeSearch");
     }
   }
 }

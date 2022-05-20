@@ -171,7 +171,7 @@
     </div>
     <div class="header_bottom mobile">
       <div class="mobileSearchBackground" @click="closeMobileSearch" v-if="searchBackground"></div>
-      <div class="container"><Search /></div>
+      <div class="container"><Search @closeSearch="closeMobileSearch"/></div>
     </div>
     <div class="mobile_menu_box">
       <div class="menu_list">
@@ -300,6 +300,9 @@ export default {
       this.menuOpen = false;
       document.querySelector(".mobile_menu_box").style.left = "-101%";
       document.querySelector(".mobile_menu_background").style.left = "-100%";
+    },
+    hello(){
+      console.log("men hell")
     }
   }
 }

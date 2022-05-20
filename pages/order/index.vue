@@ -103,6 +103,12 @@
         </div>
         <button class="cartPage_myCart_btn" @click="sendProduct">{{$t('continue')}}</button>
       </div>
+      <div class="mobile_totalPriceCon">
+        <div class="mobile_totalPrice">
+          <div class="title">{{$t('totalProducts')}}: <span>12345</span></div>
+          <button class="totalPriceButton">{{$t('continue')}}</button>         
+        </div>
+      </div>
     </div>
   </div>
 </template>

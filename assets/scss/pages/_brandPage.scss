@@ -28,6 +28,29 @@
       img{
         width: 100%;
       }
+      @include tablet{
+        margin-right: 2.66%;
+        width: 23%;
+        &:nth-child(6n){
+          margin-right: 2.66%;
+        }
+        &:nth-child(4n){
+          margin-right: 0;
+        }
+      }
+      @include mobile{
+        margin-right: 2%;
+        width: 32%;
+        &:nth-child(6n){
+          margin-right: 2%;
+        }
+        &:nth-child(4n){
+          margin-right: 2%;
+        }
+        &:nth-child(3n){
+          margin-right: 0;
+        }
+      }
     }
   }
   &_products{
@@ -41,6 +64,29 @@
       &:nth-child(4n){
         margin-right: 0;
       }
+      @include tablet{
+        width: 32%;
+        margin-right: 2%;
+        &:nth-child(4n){
+          margin-right: 2%;
+        }
+        &:nth-child(3n){
+          margin-right: 0;
+        }
+      }
+      @include mobile{
+        width: 49%;
+        margin-right: 2%;
+        &:nth-child(4n){
+          margin-right: 2%;
+        }
+        &:nth-child(3n){
+          margin-right: 2%;
+        }
+        &:nth-child(2n){
+          margin-right: 0;
+        }
+      }
     }
   }
 }
@@ -49,9 +95,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include tablet{
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .category_filter{
     display: flex;
     align-items: center;
+    @include tablet{
+      margin-bottom: 20px;
+    }
     div{
       margin-left: 24px;
       font-size: 14px;
@@ -61,6 +114,9 @@
       text-transform: uppercase;
       color: $lightgray;
       font-weight: 500;
+      @include tablet{
+        margin-left: 0 !important;
+      }
     }
     &_button{
       padding: 8px 16px;

@@ -11,7 +11,6 @@ export const mutations = {
 export const actions = {
   fetchCategory({ state, commit }) {
     const category = require(`../assets/data/category.json`)
-    console.log(category);
     commit('CATEGORY', category)
   },
 }

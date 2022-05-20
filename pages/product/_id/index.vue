@@ -96,7 +96,7 @@
 
         <div class="productPage_info_buyBtns">
           <div class="productPage_info_buyBtns_btn"><img src="~/assets/images/icons/addCart.svg" alt="">{{$t('addCart')}}</div>
-          <div class="productPage_info_buyBtns_btn">{{$t('buyOneClick')}}</div>
+          <div class="productPage_info_buyBtns_btn" @click="buyOneClick">{{$t('buyOneClick')}}</div>
         </div>
 
         <div class="productPage_info_description">Almaly çizkeýk tagamly sufle "Attache"500 gr (±15 gr) Almaly çizkeýk tagamly sufle
@@ -136,7 +136,6 @@
       </div>
       <ProductSlider :left_bool="left_bool" :right_bool="right_bool"/>
     </div>
-    <div id="containerId">Aymuhammetjan</div>
     
   </div>
 </template>
@@ -193,6 +192,9 @@ export default {
 
         clearInterval(stop);
       },3000)
+    },
+    buyOneClick(){
+      this.$router.push('/order');
     }
   }
 }

@@ -11,10 +11,16 @@
   &_label{
     font-size: 18px;
     margin-bottom: 8px;
+    @include tablet{
+      font-size: 14px;
+    }
   }
   &_bigLabel{
     font-size: 20px;
     margin-bottom: 16px;
+    @include tablet{
+      font-size: 14px;
+    }
   }
   &_input{
     background: #F5F5F5;
@@ -22,9 +28,15 @@
     padding: 10px 16px;
     border: none;
     font-size: 18px;
+    @include tablet{
+      font-size: 14px;
+    }
     &::placeholder{
       color: $lightgray;
       font-size: 18px;
+      @include tablet{
+        font-size: 14px;
+      }
     }
   }
   .col{
@@ -43,8 +55,15 @@
     &_namePhone{
       display: flex;
       margin-bottom: 16px;
+      @include tablet{
+        flex-direction: column;
+      }
       div{
         width: 250px;
+        @include tablet{
+          width: 100%;
+          margin-bottom: 10px;
+        }
       }
       &_name{
         margin-right: 40px;
@@ -53,10 +72,16 @@
     &_position{
       width: 540px;
       margin-bottom: 16px;
+      @include tablet{
+        width: 100%;
+      }
     }
     &_note{
       width: 540px;
       margin-bottom: 16px;
+      @include tablet{
+        width: 100%;
+      }
     }
     &_bill{
       margin-bottom: 26px;
@@ -126,5 +151,39 @@
       font-size: 14px;
     }
   }
-
+  .mobile_totalPriceCon{
+    display: none;
+    @include tablet{
+      display: block;
+    }
+  }
+  .mobile_totalPrice{
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    background: #FCFCFC;
+    box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 30px;
+    .title{
+      font-size: 15px;
+      color: #AFAFAF;
+      span{
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+    }
+    .totalPriceButton{
+      padding: 12px 32px;
+      font-size: 14px;
+      background: #8DC63F;
+      border-radius: 16px;
+      border: none;
+      color: white;
+    }
+  }
 }

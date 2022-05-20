@@ -3,6 +3,7 @@
     <Breadcrumb :positions="position"/>
     <div class="static_con">
       <div class="static">
+        <div class="title">{{$t('contact')}}</div>
         <div class="static_left">
           <div class="static_flex">
             <div class="input">

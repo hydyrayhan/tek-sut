@@ -6,7 +6,7 @@
     </div>
     
     <div class="searchProducts">
-      <div class="searchProducts_product" v-for="i in 1" :key="i">
+      <div class="searchProducts_product" v-for="i in 5" :key="i">
         <Product />
       </div>
     </div>
