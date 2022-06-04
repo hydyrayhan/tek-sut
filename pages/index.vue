@@ -5,19 +5,10 @@
           class="swiper news__slider"
           :options="bannerSliderOptions"
         >
-          <swiper-slide>
-            <nuxt-link to="/" class="news__slider__item"> 
+          <swiper-slide v-for="(item, i) in banner" :key="i">
+            <nuxt-link :to="item.link" class="news__slider__item" > 
                 <div class="news__slider__item__image">
-                  <!-- <img v-bind:src="$config.url+'/'+i.image" alt=""> -->
-                  <img src="~/assets/images/deleteImages/product.png" alt="">
-                </div>
-            </nuxt-link>
-            </swiper-slide>
-          <swiper-slide>
-            <nuxt-link to="/" class="news__slider__item"> 
-                <div class="news__slider__item__image">
-                  <!-- <img v-bind:src="$config.url+'/'+i.image" alt=""> -->
-                  <img src="~/assets/images/deleteImages/banner.png" alt="">
+                  <img v-bind:src="$config.url+'/'+item[language.image]" :alt="item[language.image]">
                 </div>
             </nuxt-link>
             </swiper-slide>
@@ -27,9 +18,8 @@
             <div slot="button-next"  class="swiper-button-next swiper-button"></div>
         </swiper>
       </div>
-
       <div>
-        <div class="category_header">
+        <div class="category_header" v-if="newProducts.length>0">
           <h2 class="category_header_name">{{$t('newProducts')}}</h2>
           <div class="category_header_buttons">
             <div class="category_header_buttons_button" @click="to_left">
@@ -49,13 +39,37 @@
             </svg>
           </nuxt-link>
         </div>
-        <LazyProductSlider :left_bool="left_bool" :right_bool="right_bool"/>
+        <LazyProductSlider :left_bool="left_bool" :right_bool="right_bool" :products="newProducts"/>
+      </div>
+      <div style="margin-bottom:100px">
+        <div class="category_header" v-if="discounts.length>0">
+          <h2 class="category_header_name">{{$t('discountProducts')}}</h2>
+          <div class="category_header_buttons">
+            <div class="category_header_buttons_button" @click="to_left">
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.29496 12L7.70496 10.59L3.12496 6L7.70496 1.41L6.29496 -1.23404e-07L0.294956 6L6.29496 12Z" fill="#AFAFAF"/>
+              </svg>
+            </div>
+            <div class="category_header_buttons_button" @click="to_right">
+              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.70504 0L0.295044 1.41L4.87504 6L0.295044 10.59L1.70504 12L7.70504 6L1.70504 0Z" fill="#AFAFAF"/>
+              </svg>
+            </div>
+          </div>
+          <nuxt-link to="/" class="category_header_mobile_button">
+            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.70504 0L0.295044 1.41L4.87504 6L0.295044 10.59L1.70504 12L7.70504 6L1.70504 0Z" fill="#AFAFAF"/>
+            </svg>
+          </nuxt-link>
+        </div>
+        <LazyProductSlider :left_bool="left_bool" :right_bool="right_bool" :products="discounts"/>
       </div>
   </div>
 </template>
 
 <script>
 import ProductSlider from '../components/ProductSlider';
+import { mapGetters } from 'vuex'
 export default {
   components:{ProductSlider},
   data(){
@@ -78,6 +92,14 @@ export default {
         },
       },
     }
+  },
+  computed:{
+     ...mapGetters({
+       banner:'banner/banner',
+       language: 'dynamicLang/language',
+       newProducts: 'newProducts/newProducts',
+       discounts: 'discountProducts/discountProducts',
+    }),
   },
   methods:{
     to_left(){

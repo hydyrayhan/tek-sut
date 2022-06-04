@@ -9,15 +9,15 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchCategory({ state, commit }) {
+  async fetchDiscountProducts({ state, commit }) {
     // const category = require(`../assets/data/category.json`)
-    const { data } = await this.$axios.get(`/public/categories`)
-    commit('CATEGORY', data)
+    const { data } = await this.$axios.get(`/public/products/discount`)
+    commit('CATEGORY', data.discount_products)
   },
 }
 
 export const getters = {
-  category(state) {
+  discountProducts(state) {
     return state.category
   },
 }

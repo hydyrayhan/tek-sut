@@ -1,12 +1,14 @@
 export const state = () => ({
   name: '',
-  body: ''
+  body: '',
+  image:'',
 })
 
 export const mutations = {
   SET_PRODUCTS(state, categories) {
     state.name = 'name_'+categories;
     state.body = 'body_'+categories;
+    state.image = 'image_'+categories;
   },
 }
 

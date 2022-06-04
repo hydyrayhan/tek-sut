@@ -6,9 +6,9 @@
       ref="categorySwiper"
       @slideChange="onSlide"
     >
-      <swiper-slide v-for="(i , index) in 10" :key="index">
+      <swiper-slide v-for="(i , index) in products" :key="index">
         <div class="news__slider__item">
-          <LazyProduct />
+          <LazyProduct :product="i"/>
         </div>
       </swiper-slide>
       <div slot="button-prev" style="display:none"  class="swiper-button-prev prevv"></div>
@@ -20,9 +20,9 @@
       ref="categorySwiper"
       @slideChange="onSlide"
     >
-      <swiper-slide v-for="(i , index) in 10" :key="index">
+      <swiper-slide v-for="(i , index) in products" :key="index">
         <div class="news__slider__item">
-          <LazyProduct />
+          <LazyProduct :product="i"/>
         </div>
       </swiper-slide>
       <div slot="button-prev" style="display:none"  class="swiper-button-prev prevv"></div>
@@ -31,7 +31,10 @@
 
     <div class="products_mobile">
       <div class="mobile_products">
-        <LazyProduct v-for="i in 4" :key="i"/>
+        <LazyProduct :product="products[0]"/>
+        <LazyProduct :product="products[1]"/>
+        <LazyProduct :product="products[2]"/>
+        <LazyProduct :product="products[3]"/>
       </div>
     </div>
   </div>
@@ -41,7 +44,7 @@
 import Product from '../components/Product'
 export default {
   components: { Product },
-  props:['left_bool','right_bool'],
+  props:['left_bool','right_bool','products'],
   data(){
     return{
       bannerSliderOptions: {

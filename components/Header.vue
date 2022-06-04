@@ -101,7 +101,7 @@
               <div class="cube"></div>
               <div class="cube2"></div>
               <div class="cube3"></div>
-              <nuxt-link to="/category/1" class="hiddenCategory_category" v-for="(category , i) in categories" :key="i">
+              <nuxt-link :to="'/category/'+category.category_id" class="hiddenCategory_category" v-for="(category , i) in categories" :key="i">
                 <div class="hiddenCategory_category_child">
                   <div class="child">
                     {{category[language.name]}}
@@ -111,7 +111,7 @@
                   </div>
 
                   <div class="hiddenSubCategory">
-                    <nuxt-link to="/category/1?subcategory=1" class="hiddenSubCategory_subCategory" v-for="(sub , j) in category.subcategories" :key="j">{{sub[language.name]}}</nuxt-link>
+                    <nuxt-link :to="'/category/'+category.category_id+'?subcategory='+sub.subcategory_id" class="hiddenSubCategory_subCategory" v-for="(sub , j) in category.subcategories" :key="j">{{sub[language.name]}}</nuxt-link>
                   </div>
                 </div>
               </nuxt-link>

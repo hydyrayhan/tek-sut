@@ -17,6 +17,9 @@
     img{
       width: 100%;
       max-height: 250px;
+      min-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
     }
   }
   &_name{
@@ -122,33 +125,39 @@
       }
     }
   }
-  &_new{
-    background: $yellow;
-    color: white;
+  .isContainer{
     position: absolute;
-    padding: 5px 10px;
-    border-radius: 8px;
     top: 5px;
     left: 5px;
-    @include tablet{
-      font-size: 10px;
-      padding: 3px 6px;
-      border-radius: 4px;
+    .product_new{
+      background: $yellow;
+      color: white;
+      // position: absolute;
+      padding: 5px 10px;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      // top: 5px;
+      // left: 5px;
+      @include tablet{
+        font-size: 10px;
+        padding: 3px 6px;
+        border-radius: 4px;
+      }
     }
-  }
-  &_discount{
-    background: $red;
-    color:white;
-    position: absolute;
-    padding: 5px 10px;
-    border-radius: 8px;
-    top: 40px;
-    left: 5px;
-    @include tablet{
-      font-size: 10px;
-      padding: 3px 6px;
-      border-radius: 4px;
-      top: 26px;
+    .product_discount{
+      background: $red;
+      color:white;
+      // position: absolute;
+      padding: 5px 10px;
+      border-radius: 8px;
+      // top: 40px;
+      // left: 5px;
+      @include tablet{
+        font-size: 10px;
+        padding: 3px 6px;
+        border-radius: 4px;
+        top: 26px;
+      }
     }
   }
 }

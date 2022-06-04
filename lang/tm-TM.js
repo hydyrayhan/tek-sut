@@ -8,6 +8,7 @@ export default {
   workTime:"Ish wagty",
   discount:"Discount",
   newProducts:"New products",
+  discountProducts:"Discount harytlar",
   wholesalers:"wholesalers",
   aboutUs:"Biz barada",
   contact:"Biz bilen habarlaşmak",
