@@ -3058,6 +3058,10 @@
 
 .brandPage_brands_brand img {
   width: 100%;
+  min-height: 150px;
+  max-height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 1000px) {

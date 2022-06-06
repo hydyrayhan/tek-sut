@@ -11,7 +11,7 @@
       <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0.294956 10.59L1.70496 12L7.70496 6L1.70496 5.24537e-07L0.294955 1.41L4.87496 6L0.294956 10.59Z" fill="#262626"/>
       </svg>
-      <span style="color:#262626">{{positions.subcategory_name}}</span>
+      <span style="color:#262626">{{positions.subcategory_name[currentLanguage.code]}}</span>
     </div>
   </div>
 </template>

@@ -77,7 +77,9 @@ export default {
   },
   mounted(){
     const prev = document.querySelectorAll(".category_header_buttons_button")[0]
-    prev.style.opacity = '0.5'
+    if(prev){
+      prev.style.opacity = '0.5'
+    }
   },
   methods:{
     onSlide : function () {

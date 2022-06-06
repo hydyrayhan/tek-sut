@@ -4,31 +4,33 @@
       <Breadcrumb :positions="position" />
       <div class="category_filter">
         <div class="category_filter_price">{{$t('price')}}:</div>
-        <div class="category_filter_lowToHigh category_filter_button">{{$t('lowtohigh')}}</div>
-        <div class="category_filter_highToLow category_filter_button active">{{$t('hightolow')}}</div>
+        <div class="category_filter_lowToHigh category_filter_button active" @click="sort(0)">{{$t('lowtohigh')}}</div>
+        <div class="category_filter_highToLow category_filter_button" @click="sort(1)">{{$t('hightolow')}}</div>
       </div>
     </div>
     <div class="brandPage">
-      <div class="brandPage_categories">
+      <!-- <div class="brandPage_categories">
         <div class="brandPage_categories_category active">All</div>
         <div class="brandPage_categories_category">Beauty & Health</div>
         <div class="brandPage_categories_category">Cleaning</div>
-      </div>
+      </div> -->
 
       <div class="brandPage_products">
-        <div class="brandPage_products_product" v-for="i in 20" :key="i">
-          <LazyProduct />
+        <div class="brandPage_products_product" v-for="(product , i) in products" :key="i">
+          <LazyProduct :product="product"/>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
-import Breadcrumb from '~/components/Breadcrumb.vue';
+// import Breadcrumb from '~/components/Breadcrumb.vue';
 import Product from '~/components/Product.vue';
+import { mapGetters } from 'vuex'
 export default {
-  components:{Breadcrumb , Product},
+  components:{Product},
   data(){
     return{
       position:{
@@ -40,9 +42,61 @@ export default {
           id:"1",
           to:"/brands"
         },
-        subcategory_name:'Brand',
-      }
+        subcategory_name:{
+          tm:"inside brand",
+          ru:"ichi brand",
+        },
+      },
+      products:[]
     } 
+  },
+  computed:{
+     ...mapGetters({
+       brands:'brands/category',
+    }),
+  },
+  async mounted(){
+    const height = window.innerHeight-385;
+    const element = document.querySelector('.brandPage');
+    element.style.minHeight = height+'px';
+    window.addEventListener('resize',function(){
+      const height = window.innerHeight-385;
+      const element = document.querySelector('.brandPage');
+      element.style.minHeight = height+'px';
+    })
+    this.changeSubName();
+    let res;
+    try {
+      res = await this.$axios.get(`/public/brands/products/${this.$route.params.id}?sort=2`);
+    } catch (error) {
+      console.log(error);
+    }
+    this.products = res.data;
+  },
+  methods:{
+    sort(id){
+      const el = document.querySelectorAll('.category_filter div');
+      const bool = el[id+1].classList.contains('active');
+      for(var i = 1; i<el.length; i++){
+        el[i].classList.remove('active');
+      }
+      if(!bool){
+        el[id+1].classList.add('active');
+        this.products.reverse()
+      }
+    },
+    changeSubName(){
+      console.log(this.brands)
+      for(let i =0; i<this.brands.length; i++){
+        for(let j= 0; j<this.brands[i].category_brands.length; j++){
+          if(this.brands[i].category_brands[j].brand_id === this.$route.params.id){
+            this.position.subcategory_name.tm = this.brands[i].category_brands[j].name;
+            this.position.subcategory_name.ru = this.brands[i].category_brands[j].name;
+            break
+          }
+        }
+      }
+    }
   }
 }
 </script>
