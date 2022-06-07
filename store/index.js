@@ -8,7 +8,6 @@ export const actions = {
       await dispatch('newProducts/fetchNewProducts')
       await dispatch('discountProducts/fetchDiscountProducts')
       await dispatch('brands/fetchBrands','all')
-      // await dispatch('filters/fetchGender')
       // await dispatch('articles/fetchArticles')
       // await dispatch('banners/fetchBanners')
     } catch (err) {

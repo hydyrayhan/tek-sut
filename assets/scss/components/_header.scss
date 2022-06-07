@@ -232,7 +232,7 @@
             border-bottom: 1px solid #E2E0E0;
           }
           .cart_productCon{
-            height: 50vh;
+            max-height: 50vh;
             overflow-y: auto;
             overflow-x: hidden;
             padding-right: 10px;
@@ -246,11 +246,14 @@
               max-width: 100px;
               max-height: 100px;
               img{
+                object-fit: cover;
+                border-radius: 6px;
                 width: 100%;
                 height: 100%;
               }
             }
             &_info{
+              width: 100%;
               &_name{
                 display: -webkit-box;
                 -webkit-line-clamp: 2;

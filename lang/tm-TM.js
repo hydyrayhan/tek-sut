@@ -54,4 +54,5 @@ export default {
   email:"Electron pochta",
   canbeEmpty:"Boş goýup bilersiňiz",
   send:"Ugratmak",
+  addedCart:"Sebetde bar",
 }

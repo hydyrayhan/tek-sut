@@ -4,8 +4,8 @@
       <Breadcrumb :positions="position" />
       <div class="category_filter">
         <div class="category_filter_price">{{$t('price')}}:</div>
-        <div class="category_filter_lowToHigh category_filter_button active" @click="sort(0)">{{$t('lowtohigh')}}</div>
-        <div class="category_filter_highToLow category_filter_button" @click="sort(1)">{{$t('hightolow')}}</div>
+        <div class="category_filter_lowToHigh category_filter_button active" @click="sort(1)">{{$t('lowtohigh')}}</div>
+        <div class="category_filter_highToLow category_filter_button" @click="sort(2)">{{$t('hightolow')}}</div>
       </div>
     </div>
     <div class="brandPage">
@@ -76,17 +76,23 @@ export default {
   methods:{
     sort(id){
       const el = document.querySelectorAll('.category_filter div');
-      const bool = el[id+1].classList.contains('active');
-      for(var i = 1; i<el.length; i++){
-        el[i].classList.remove('active');
-      }
-      if(!bool){
-        el[id+1].classList.add('active');
-        this.products.reverse()
+      if(id == 1){
+        const bool = el[id].classList.contains('active');
+        if(!bool){
+          el[id].classList.add('active');
+          el[id+1].classList.remove('active');
+          this.products.reverse();
+        }
+      }else if(id == 2){
+        const bool = el[id].classList.contains('active');
+        if(!bool){
+          el[id].classList.add('active');
+          el[id-1].classList.remove('active');
+          this.products.reverse();
+        }
       }
     },
     changeSubName(){
-      console.log(this.brands)
       for(let i =0; i<this.brands.length; i++){
         for(let j= 0; j<this.brands[i].category_brands.length; j++){
           if(this.brands[i].category_brands[j].brand_id === this.$route.params.id){

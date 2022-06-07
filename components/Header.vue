@@ -128,7 +128,7 @@
             <div class="header_bottom_box_icon"><img src="~/assets/images/icons/headerCart.svg" alt="headerCart"></div>
             <div class="header_bottom_box_text">{{$t('cart')}}</div>
           </span>
-          <div class="active"></div>
+          <div class="active" v-if="cartProducts.length>0"></div>
           <div class="cart" v-if="isOpen">
             <div class="cart_cube1"></div>
             <div class="cart_cube2"></div>
@@ -141,15 +141,16 @@
             <hr> 
 
             <div class="cart_productCon">
-              <div class="cart_product" v-for="i in 10" :key="i">
+              <div class="cart_product" v-for="(product,i) in cartProducts" :key="i">
                 <div class="cart_product_image">
-                  <img src="~/assets/images/deleteImages/product.png" alt="product">
+                  <!-- <img src="~/assets/images/deleteImages/product.png" alt="product"> -->
+                  <img v-if="product.images[0]" v-bind:src="$config.url+'/'+product.images[0].image" alt="">
                 </div>
                 <div class="cart_product_info">
-                  <div class="cart_product_info_name">Almaly çizkeýk tagamly sufle "Attache" 1 kg</div>
+                  <div class="cart_product_info_name">{{product[language.name]}} lorem</div>
                   <div class="cart_product_info_bottom">
-                    <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}:<span>11</span></div>
-                    <div class="cart_product_info_bottom_price">8.00 manat</div>
+                    <div class="cart_product_info_bottom_quantity">{{$t('quantity')}}:<span>{{product.count}}</span></div>
+                    <div class="cart_product_info_bottom_price">{{product.price}} manat</div>
                   </div>
                 </div>
               </div>
@@ -158,7 +159,7 @@
             <div class="cart_bottom">
               <div class="cart_bottom_header">
                 <div class="cart_bottom_header_title">Total:</div>
-                <div class="cart_bottom_header_title">234 manat</div>
+                <div class="cart_bottom_header_title">{{totalCost}} manat</div>
               </div>
               <div class="cart_bottom_buttons">
                 <div class="cart_bottom_buttons_white" @click="closeCart(),$router.push('/cart')">Go to cart</div>
@@ -268,6 +269,8 @@ export default {
       dropdowns: 'dropdowns/dropdowns',
       categories: 'category/category',
       language: 'dynamicLang/language',
+      cartProducts: 'cart/cartProducts',
+      totalCost: 'cart/totalCost',
     }),
   },
   methods:{
@@ -301,9 +304,6 @@ export default {
       document.querySelector(".mobile_menu_box").style.left = "-101%";
       document.querySelector(".mobile_menu_background").style.left = "-100%";
     },
-    hello(){
-      console.log("men hell")
-    }
   }
 }
 </script>

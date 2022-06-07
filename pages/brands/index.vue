@@ -67,7 +67,25 @@ export default {
       }
       document.querySelectorAll('.brandPage_categories_category')[data.index].classList.add('active')
       this.$store.dispatch('brands/take', data.id)
-    } 
+    },
+    sort(id){
+      const el = document.querySelectorAll('.category_filter div');
+      if(id == 1){
+        const bool = el[id].classList.contains('active');
+        if(!bool){
+          el[id].classList.add('active');
+          el[id+1].classList.remove('active');
+          this.products.reverse();
+        }
+      }else if(id == 2){
+        const bool = el[id].classList.contains('active');
+        if(!bool){
+          el[id].classList.add('active');
+          el[id-1].classList.remove('active');
+          this.products.reverse();
+        }
+      }
+    },
   }
 }
 </script>

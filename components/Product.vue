@@ -21,25 +21,65 @@
         <div class="product_discount" v-if="product.discount">-{{product.discount}}%</div>
       </span>
     </nuxt-link>
-    <div class="product_addBtn">
-      <img src="~/assets/images/icons/addCart.svg" alt="">
-      <span>
+    <div class="product_addBtn" @click="addProduct()">
+      <img v-if="!productCount" src="~/assets/images/icons/addCart.svg" alt="">
+      <span v-if="!productCount">
        {{$t('addCart')}}
       </span>
+      <span v-if="productCount">{{$t('addedCart')}}</span>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex';
 export default {
   props:['product'],
+  data(){
+    return{
+      productCount : 0
+    }
+  },
   computed:{
      ...mapGetters({
        banner:'banner/banner',
        language: 'dynamicLang/language',
        newProducts: 'newProducts/newProducts',
+       cartProducts : 'cart/cartProducts',
     }),
+    cartProducts(){
+      return this.$store.getters['cart/cartProducts']
+    }
+  },
+  methods:{
+    setProductCount(){
+      this.productCount = this.$productCount(this.product);
+    },
+    ...mapActions({
+      setProductToCart : 'cart/setProductToCart',
+      addProductCount : 'cart/addProductCount',
+      removeProductCount : 'cart/removeProductCount',
+      deleteProduct : 'cart/deleteProduct',
+    }),
+    addProduct(){
+      console.log(this.product)
+      if(this.productCount === 0){
+        this.setProductToCart(this.product);
+        this.productCount+=1;
+      }else{
+        this.deleteProduct(this.product.product_id)
+        this.productCount = 0
+      }
+    }
+  },
+  
+  watch:{
+    cartProducts(){
+      this.setProductCount()
+    }
+  },
+  mounted(){
+    this.setProductCount()
   },
 }
 </script>

@@ -34,6 +34,7 @@ export default {
     { src: '~/plugins/v-dropdown-menu' },
     { src: '~/plugins/vue-awesome-swiper' },
     { src: '~/plugins/v-click-outside' },
+    { src: '~/plugins/product-count' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
