@@ -55,4 +55,5 @@ export default {
   canbeEmpty:"Boş goýup bilersiňiz",
   send:"Ugratmak",
   addedCart:"Sebetde bar",
+  rated:"Baha berildi",
 }

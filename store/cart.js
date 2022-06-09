@@ -11,9 +11,22 @@ const setItemsInLocalStorage = (items) => {
   window.localStorage.setItem('cart-products', JSON.stringify(items))
 }
 
+const returnRatedItems = () =>{
+  let ratedProducts = window.localStorage.getItem('rated-products');
+  if(!ratedProducts) ratedProducts = []
+  else ratedProducts = JSON.parse(ratedProducts);
+
+  return ratedProducts
+}
+
+const setRatedItems = (items) => {
+  window.localStorage.setItem('rated-products', JSON.stringify(items))
+}
+
 // state
 export const state =()=>({
-  products : []
+  products : [],
+  ratedProducts : [],
 })
 
 
@@ -24,6 +37,7 @@ export const mutations = {
   },
   SET_PRODUCT_TO_CART(state, product){
     product.count = 1;
+    product.userRate = 0;
     let has = true;
     for(let i = 0; i<state.products.length; i++){
       if(state.products[i].product_id === product.product_id){
@@ -40,7 +54,7 @@ export const mutations = {
     let products = state.products;
 
     products.map((e) => {
-      if (e.product_id === id && e.product_stock.stock_quantity > e.count) {
+      if (e.product_id === id && e.product_stock.quantity > e.count) {
         e.count += 1;
       }else{
         // this.$toast.success("fdsfd")
@@ -82,6 +96,21 @@ export const mutations = {
     state.products = [];
     setItemsInLocalStorage([])
   },
+  SET_RATE(state,{id,rate}){
+    let has = true;
+    for(let i = 0; i<state.ratedProducts.length; i++){
+      if(state.ratedProducts[i].id === id){
+        has = false
+      }
+    }
+    if(has){
+      state.ratedProducts.push({id,rate});
+    }
+    setRatedItems(state.ratedProducts)
+  },
+  SET_RATED_PRODUCTS(state){
+    state.ratedProducts = returnRatedItems();
+  }
 }
 
 
@@ -110,6 +139,12 @@ export const actions = {
   clearProducts({commit}){
     commit("CLEAR_PRODUCTS")
   },
+  setRate({commit},{id,rate}){
+    commit("SET_RATE",{id,rate})
+  },
+  setProductRated({commit}){
+    commit('SET_RATED_PRODUCTS');
+  }
 }
 
 
@@ -125,4 +160,7 @@ export const getters = {
 
     return cost.toFixed(2)
   },
+  ratedProducts(state){
+    return state.ratedProducts
+  }
 }

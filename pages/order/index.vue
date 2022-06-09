@@ -99,13 +99,13 @@
         <div class="cartPage_myCart_title">{{$t('myCart')}}</div>
         <div class="cartPage_myCart_totalPrice">
           <div class="cartPage_myCart_totalPrice_title">{{$t('totalProducts')}}:</div>
-          <div class="cartPage_myCart_totalPrice_price">115.99 manat</div>
+          <div class="cartPage_myCart_totalPrice_price">{{totalCost}} manat</div>
         </div>
         <button class="cartPage_myCart_btn" @click="sendProduct">{{$t('continue')}}</button>
       </div>
       <div class="mobile_totalPriceCon">
         <div class="mobile_totalPrice">
-          <div class="title">{{$t('totalProducts')}}: <span>12345</span></div>
+          <div class="title">{{$t('totalProducts')}}: <span>{{totalCost}} manat</span></div>
           <button class="totalPriceButton">{{$t('continue')}}</button>         
         </div>
       </div>
@@ -115,6 +115,7 @@
 
 <script>
 import Breadcrumb from '~/components/Breadcrumb.vue';
+import { mapGetters, mapActions } from 'vuex'
 export default {
   components:{Breadcrumb},
   data(){
@@ -131,12 +132,17 @@ export default {
           id:"1",
           to:"/order"
         },
-        // subcategory_name:'Fruits',
       }
     }
   },
   mounted(){
     this.chooseDay(0)
+  },
+  computed: {
+    ...mapGetters({
+      cartProducts: 'cart/cartProducts',
+      totalCost: 'cart/totalCost',
+    }),
   },
   methods:{
     clockRadio(number){

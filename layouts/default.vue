@@ -19,6 +19,11 @@ export default {
         if (!cartPerfumes) cartPerfumes = []
         else cartPerfumes = JSON.parse(cartPerfumes)
         this.$store.dispatch('cart/setProductsToCart', cartPerfumes)
+
+        let rateds = localStorage.getItem('rated-products')
+        if (!rateds) rateds = []
+        else rateds = JSON.parse(rateds)
+        this.$store.dispatch('cart/setProductRated', rateds)
     },
 }
 </script>

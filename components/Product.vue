@@ -7,10 +7,15 @@
       </div>
       <div class="product_name" v-if="product[language.name]">{{product[language.name]}}</div>
       <div class="product_rating">
-        <div class="product_rating_stars" v-for="i in 5" :key="i">
+        <span style="display:flex" v-if="calculateRate(product.rating,product.rating_count) > 0">
+          <div class="product_rating_stars" v-for="(i , index) in calculateRate(product.rating,product.rating_count)" :key="index+10">
+            <img src="~/assets/images/icons/goldStar.svg" alt="">
+          </div>
+        </span>
+        <div class="product_rating_stars" v-for="i in 5-calculateRate(product.rating,product.rating_count)" :key="i">
           <img src="~/assets/images/icons/grayStar.svg" alt="">
         </div>
-        <div class="product_rating_count">(11)</div>
+        <div class="product_rating_count">({{product.rating_count}})</div>
       </div>
       <div class="product_prices">
         <div class="product_prices_new" v-if="product.price">{{product.price}} manat</div>
@@ -52,6 +57,9 @@ export default {
     }
   },
   methods:{
+    calculateRate(rate){
+      return Math.round(rate) || 0
+    },
     setProductCount(){
       this.productCount = this.$productCount(this.product);
     },
@@ -62,7 +70,6 @@ export default {
       deleteProduct : 'cart/deleteProduct',
     }),
     addProduct(){
-      console.log(this.product)
       if(this.productCount === 0){
         this.setProductToCart(this.product);
         this.productCount+=1;

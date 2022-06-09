@@ -48,7 +48,8 @@ export default {
     locales: ['ru', 'tm'],
   },
   publicRuntimeConfig:{
-    url:process.env.SERVER_URL || 'http://localhost:3000'
+    url:process.env.SERVER_URL || 'http://localhost:3000',
+    link: process.env.LINK || 'localhost:3000'
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

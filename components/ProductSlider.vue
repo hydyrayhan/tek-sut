@@ -31,10 +31,10 @@
 
     <div class="products_mobile">
       <div class="mobile_products">
-        <LazyProduct :product="products[0]"/>
-        <LazyProduct :product="products[1]"/>
-        <LazyProduct :product="products[2]"/>
-        <LazyProduct :product="products[3]"/>
+        <LazyProduct v-if="products[0]" :product="products[0]"/>
+        <LazyProduct v-if="products[1]" :product="products[1]"/>
+        <LazyProduct v-if="products[2]" :product="products[2]"/>
+        <LazyProduct v-if="products[3]" :product="products[3]"/>
       </div>
     </div>
   </div>
