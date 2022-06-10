@@ -88,7 +88,9 @@ export default {
   toast: {
     position: 'top-center',
     duration: 5000,
+    register:[],
     className:['toast'],
+
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

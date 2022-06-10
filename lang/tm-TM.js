@@ -9,6 +9,8 @@ export default {
   discount:"Discount",
   newProducts:"New products",
   discountProducts:"Discount harytlar",
+  giftProducts:"Gift products",
+  aksiyaProducts:"Aksiya Products",
   wholesalers:"wholesalers",
   aboutUs:"Biz barada",
   contact:"Biz bilen habarlaşmak",
@@ -56,4 +58,6 @@ export default {
   send:"Ugratmak",
   addedCart:"Sebetde bar",
   rated:"Baha berildi",
+  newAndAksiya:'Arzanladyş we Aksiýalar',
+  continueShopping:"Sowda dowam edin",
 }

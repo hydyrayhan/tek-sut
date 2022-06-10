@@ -101,6 +101,23 @@
               <div class="cube"></div>
               <div class="cube2"></div>
               <div class="cube3"></div>
+              <nuxt-link class="hiddenCategory_category" to="/category/newAndAksiya">
+                <div class="hiddenCategory_category_child">
+                  <div class="child">
+                    {{$t('newAndAksiya')}}
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
+                      <path d="M0.294956 10.59L1.70496 12L7.70496 6L1.70496 5.24537e-07L0.294955 1.41L4.87496 6L0.294956 10.59Z" fill="#AFAFAF"/>
+                    </svg>
+                  </div>
+
+                  <div class="hiddenSubCategory">
+                    <nuxt-link to='/category/newAndAksiya?subcategory=discount' class="hiddenSubCategory_subCategory">{{$t('discountProducts')}}</nuxt-link>
+                    <nuxt-link to='/category/newAndAksiya?subcategory=aksiya' class="hiddenSubCategory_subCategory">{{$t('aksiyaProducts')}}</nuxt-link>
+                    <nuxt-link to='/category/newAndAksiya?subcategory=new' class="hiddenSubCategory_subCategory">{{$t('newProducts')}}</nuxt-link>
+                    <nuxt-link to='/category/newAndAksiya?subcategory=gift' class="hiddenSubCategory_subCategory">{{$t('giftProducts')}}</nuxt-link>
+                  </div>
+                </div>
+              </nuxt-link>
               <nuxt-link :to="'/category/'+category.category_id" class="hiddenCategory_category" v-for="(category , i) in categories" :key="i">
                 <div class="hiddenCategory_category_child">
                   <div class="child">

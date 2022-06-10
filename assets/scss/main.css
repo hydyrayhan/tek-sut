@@ -3071,6 +3071,91 @@
   color: white;
 }
 
+.giftPopup {
+  background: #FCFCFC;
+  -webkit-box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+          box-shadow: 0px 0px 11px rgba(152, 152, 152, 0.2);
+  border-radius: 8px;
+  width: 25%;
+  padding: 32px 24px;
+  text-align: center;
+  position: fixed;
+  top: calc(50% - 183px);
+  left: calc(50% - 240px);
+  z-index: 11;
+}
+
+.giftPopup svg {
+  margin-bottom: 16px;
+}
+
+.giftPopup .giftText {
+  margin-bottom: 16px;
+}
+
+.giftPopup .giftName {
+  color: #006838;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.giftPopup .giftProduct {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.giftPopup .giftProduct img {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 16px;
+  border-radius: 8px;
+}
+
+.giftPopup .giftProduct .giftText {
+  text-align: left;
+}
+
+.giftPopup .giftButton {
+  color: white;
+  background: #8DC63F;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 16px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.giftPopupBg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(217, 217, 217, 0.5);
+  -webkit-filter: blur(11px);
+          filter: blur(11px);
+  z-index: 10;
+  cursor: pointer;
+}
+
 .brandPage_categories {
   display: -webkit-box;
   display: -ms-flexbox;

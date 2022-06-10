@@ -51,6 +51,10 @@ export default {
     },
     ...mapGetters({
       categories: 'category/category',
+      discountProducts:'discountProducts/discountProducts',
+      newProducts:'newProducts/newProducts',
+      giftProducts:'giftProducts/giftProducts',
+      aksiyaProducts:'aksiyaProducts/aksiyaProducts'
     }),
   },
   async mounted(){
@@ -93,44 +97,83 @@ export default {
     async takeData(){
       this.category = this.$route.params.id;
       this.sub = this.$route.query.subcategory;
-
-      for(let i = 0; i< this.categories.length; i++){
-        if(this.categories[i].category_id === this.category){
-          this.positions.category.to = '/category/'+this.category;
-          this.positions.category.name.tm = this.categories[i].name_tm;
-          this.positions.category.name.ru = this.categories[i].name_ru;
-          if(this.sub){
-            
-            for(let j = 0; j< this.categories[i].subcategories.length; j++){
-              if(this.categories[i].subcategories[j].subcategory_id === this.sub){
-                this.positions.subcategory_name = {
-                  tm:this.categories[i].subcategories[j].name_tm,
-                  ru:this.categories[i].subcategories[j].name_ru
-                }
-              }
+      console.log(this.category)
+      console.log(this.sub)
+      if(this.category === 'newAndAksiya'){
+        this.positions.category.to = '/category/'+this.category;
+        this.positions.category.name.tm = 'Arzanladyş we Aksiýalar';
+        this.positions.category.name.ru = 'Arzanladyş we Aksiýalar ru';
+        if(this.sub){
+          if(this.sub === 'discount'){
+            this.positions.subcategory_name = {
+              tm: 'Discount products',
+              ru: 'Discount products ru'
             }
-          }else{
-            this.positions.subcategory_name = null
+            this.products = this.discountProducts
           }
-          break;
-        }
-      }
-      let res;
-      if(!this.sub){
-        try {
-          res = await this.$axios.get(`/public/categories/products/${this.category}?sort=0`);
-          console.log("Jfldsjl")
-        } catch (error) {
-          console.log(error);
+          else if(this.sub === 'aksiya'){
+            this.positions.subcategory_name = {
+              tm: 'Aksiys products',
+              ru: 'Aksiys products ru'
+            }
+            console.log(this.aksiyaProducts)
+            this.products = this.aksiyaProducts;
+          }
+          else if(this.sub === 'new'){
+            this.positions.subcategory_name = {
+              tm: 'New products',
+              ru: 'New products ru'
+            }
+            this.products = this.newProducts;
+          }
+          else if(this.sub === 'gift'){
+            this.positions.subcategory_name = {
+              tm: 'Gift products',
+              ru: 'Gift products ru'
+            }
+            this.products = this.giftProducts
+          }
+        }else{
+          this.positions.subcategory_name = null
         }
       }else{
-        try {
-          res = await this.$axios.get(`/public/sub-categories/products/${this.sub}?sort=0`);
-        } catch (error) {
-          console.log(error);
+        for(let i = 0; i< this.categories.length; i++){
+          if(this.categories[i].category_id === this.category){
+            this.positions.category.to = '/category/'+this.category;
+            this.positions.category.name.tm = this.categories[i].name_tm;
+            this.positions.category.name.ru = this.categories[i].name_ru;
+            if(this.sub){
+              
+              for(let j = 0; j< this.categories[i].subcategories.length; j++){
+                if(this.categories[i].subcategories[j].subcategory_id === this.sub){
+                  this.positions.subcategory_name = {
+                    tm:this.categories[i].subcategories[j].name_tm,
+                    ru:this.categories[i].subcategories[j].name_ru
+                  }
+                }
+              }
+            }else{
+              this.positions.subcategory_name = null
+            }
+            break;
+          }
         }
-      }
-      this.products = res.data.products;
+        let res;
+        if(!this.sub){
+          try {
+            res = await this.$axios.get(`/public/categories/products/${this.category}?sort=0`);
+          } catch (error) {
+            console.log(error);
+          }
+        }else{
+          try {
+            res = await this.$axios.get(`/public/sub-categories/products/${this.sub}?sort=0`);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+        this.products = res.data.products;
+      } 
     }
   }
 }
