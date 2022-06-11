@@ -10,6 +10,7 @@ export const actions = {
       await dispatch('brands/fetchBrands','all')
       await dispatch('aksiyaProducts/fetchAksiyaProducts')
       await dispatch('giftProducts/fetchGiftProducts')
+      await dispatch('allProducts/fetchAllProducts')
     } catch (err) {
       console.log(err)
     }

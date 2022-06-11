@@ -95,7 +95,7 @@
             <span  v-if="!productCount">{{$t('addCart')}}</span>
             <span v-if="productCount">{{$t('addedCart')}}</span>
           </div>
-          <div class="productPage_info_buyBtns_btn" @click="buyOneClick">{{$t('buyOneClick')}}</div>
+          <div class="productPage_info_buyBtns_btn" style="cursor:pointer" @click="buyOneClick">{{$t('buyOneClick')}}</div>
         </div>
 
         <div class="productPage_info_description" v-html="product[language.body]">

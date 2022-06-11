@@ -118,11 +118,12 @@
         <path d="M6.25 40C4.17893 40 2.5 38.3211 2.5 36.25V17.5H17.5V40H6.25Z" fill="#8DC63F"/>
       </svg>
 
-      <div class="giftText">Sizin sowdanyz jemi: 198 manat</div>
-      <div class="giftName">Sizin sowdanyz 100 manatdan gecen ucin bizden sowgat</div>
+      <div class="giftText">Sizin sowdanyz jemi: {{giftProduct.totalPrice}} manat</div>
+      <div class="giftName">Sizin sowdanyz {{giftProduct.overPrice}} manatdan gecen ucin bizden sowgat</div>
       <div class="giftProduct">
-        <img src="~/assets/images/deleteImages/product.png" alt="">
-        <div class="giftText">Таблетки Somat для посудомоечных машин 8х1 - 48 шт</div>
+        <!-- <img src="~/assets/images/deleteImages/product.png" alt=""> -->
+        <img v-bind:src="$config.url+'/'+giftProduct.image" alt="" >
+        <div class="giftText">{{giftProduct[language.name]}}</div>
       </div>
       <button class="giftButton" @click="giftGo">{{$t('continueShopping')}}</button>
     </div>
@@ -139,7 +140,7 @@ export default {
       img:require("~/assets/images/icons/radio.svg"),
       oldImg:require("~/assets/images/icons/radioOff.svg"),
       checkboxvalue:false,
-      gift:true,
+      gift:false,
       position:{
         category:{
           name:{
@@ -149,6 +150,13 @@ export default {
           id:"1",
           to:"/order"
         },
+      },
+      giftProduct:{
+        totalPrice:0,
+        overPrice:0,
+        name_tm:'',
+        name_ru:'',
+        image:'',
       },
       info:{
         address:'',
@@ -177,6 +185,7 @@ export default {
     ...mapGetters({
       cartProducts: 'cart/cartProducts',
       totalCost: 'cart/totalCost',
+      language: 'dynamicLang/language',
     }),
   },
   methods:{
@@ -275,7 +284,11 @@ export default {
         console.log(res)
         if(res.data.giftProduct){
           this.clearProducts();
-          alert("You win a bonus")
+          this.giftProduct.totalPrice = res.data.order.total_price;
+          this.giftProduct.name_tm = res.data.giftProduct.name_tm;
+          this.giftProduct.name_ru = res.data.giftProduct.name_ru;
+          this.giftProduct.image = res.data.giftProduct.image;
+          this.giftProduct.overPrice = res.data.giftProduct.price;
           this.gift = true;
         }else{
           this.clearProducts();

@@ -60,4 +60,6 @@ export default {
   rated:"Baha berildi",
   newAndAksiya:'Arzanladyş we Aksiýalar',
   continueShopping:"Sowda dowam edin",
+  filter:"Filter",
+  chooseBrand:"Brand sayla"
 }

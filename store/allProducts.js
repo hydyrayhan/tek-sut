@@ -5,25 +5,24 @@ export const state = () => ({
 
 export const mutations = {
   CATEGORY(state, category) {
-    state.category = category.gift_products
+    state.category = category.products;
     state.brands = category.brands;
   },
 }
 
 export const actions = {
-  async fetchGiftProducts({ state, commit }) {
+  async fetchAllProducts({ state, commit },brand) {
     // const category = require(`../assets/data/category.json`)
-    const { data } = await this.$axios.get(`/public/products/gift`);
+    const { data } = await this.$axios.get(`/public/products`);
     commit('CATEGORY', data)
   },
 }
 
 export const getters = {
-  giftProducts(state) {
+  allProducts(state) {
     return state.category
   },
-  giftProductsBrands(state) {
+  allProductsBrands(state){
     return state.brands
-  },
-  
+  }
 }
