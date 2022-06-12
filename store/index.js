@@ -7,9 +7,9 @@ export const actions = {
       await dispatch('dynamicLang/fetchLanguage') 
       await dispatch('newProducts/fetchNewProducts')
       await dispatch('discountProducts/fetchDiscountProducts')
-      await dispatch('brands/fetchBrands','all')
-      await dispatch('aksiyaProducts/fetchAksiyaProducts')
-      await dispatch('giftProducts/fetchGiftProducts')
+      await dispatch('brands/fetchBrands','all') // not need first
+      await dispatch('aksiyaProducts/fetchAksiyaProducts')  //not need first
+      await dispatch('giftProducts/fetchGiftProducts')  //not need first
       await dispatch('allProducts/fetchAllProducts')
     } catch (err) {
       console.log(err)

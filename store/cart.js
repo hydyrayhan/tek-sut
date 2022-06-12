@@ -52,15 +52,21 @@ export const mutations = {
   },
   ADD_PRODUCT_COUNT(state , id){
     let products = state.products;
-
+    let toast = false;
+    
     products.map((e) => {
-      if (e.product_id === id && e.product_stock.quantity > e.count) {
-        e.count += 1;
-      }else{
-        // this.$toast.success("fdsfd")
+      if (e.product_id === id ) {
+        e.product_stock.quantity > e.count ?  e.count += 1 : toast = true;
+       
       }
+      
       return e
     })
+
+    if(toast){
+      this.$toast.success(this.app.i18n.t('notStock'))
+      toast = false
+    }
     
     state.products = [];
     state.products = products;

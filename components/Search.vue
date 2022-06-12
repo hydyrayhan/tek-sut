@@ -8,19 +8,22 @@
       <div class="searched_find">
         <div class="searched_find_products">
           <span @click="closeSearchBar">
-            <nuxt-link to="/product/1" v-for="i in 3" :key="i" class="searched_find_products_product">
-              <div class="image"><img src="~/assets/images/deleteImages/product.png" alt="product"></div>
-              <div class="name">Almaly çizkeýk tagamly sufle "Attache"500 gr (±15 gr)</div>
+            <nuxt-link :to="'/product/'+product.product_id" v-for="(product , i) in data" :key="i" class="searched_find_products_product">
+              <div class="image">
+                <!-- <img src="~/assets/images/deleteImages/product.png" alt="product"> -->
+                <img v-if="product.images[0]" v-bind:src="$config.url+'/'+product.images[0].image" alt="">
+                <div class="name">{{product[language.name]}}</div>
+              </div>
               <div class="prices">
-                <div class="prices_new">8.00 manat</div>
-                <div class="prices_old">12.00 manat</div>
+                <div class="prices_new" v-if="product.price">{{product.price}} manat</div>
+                <div class="prices_old" v-if="product.discount">{{product.price_old}} manat</div>
               </div>
             </nuxt-link>
           </span>
         </div>
         <div class="searched_find_bottom">
           <span @click="clearSearch">
-            <nuxt-link to="/search">{{$t('seeAll')}}</nuxt-link> 
+            <nuxt-link :to="'/search?keyword='+searchValue" >{{$t('seeAll')}}</nuxt-link> 
           </span>
           <span>{{$t('result')}}:2</span>
         </div>
@@ -30,27 +33,38 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data(){
     return{
       notFound:false,
       searchValue:'',
       searchedIsOpen:false,
+      data:''
     }
   },
+  computed:{
+    ...mapGetters({
+      language:'dynamicLang/language'
+    })
+  },
   methods:{
-    search(){
+    async search(){
       const result = true;
-      this.searchedIsOpen = true;
       if(result){
-
+        try {
+          const {data} = await this.$axios.get(`public/products/search?keyword=${this.searchValue}`);
+          this.data = data.products;
+        } catch (error) {
+          console.log(error)
+        }
       }else{
-      }
 
+      }
+      this.searchedIsOpen = true;
     },
     closeSearchBar(){
       this.searchedIsOpen = false;
-      console.log("HEllmi men worked")
     },
     clearSearch(){
       this.closeSearchBar();

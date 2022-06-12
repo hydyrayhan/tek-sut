@@ -61,5 +61,6 @@ export default {
   newAndAksiya:'Arzanladyş we Aksiýalar',
   continueShopping:"Sowda dowam edin",
   filter:"Filter",
-  chooseBrand:"Brand sayla"
+  chooseBrand:"Brand sayla",
+  notStock:"Empty stock"
 }

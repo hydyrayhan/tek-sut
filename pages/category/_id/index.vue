@@ -73,6 +73,7 @@ export default {
           text:'',
         },
       },
+      globalBrandId:'',
       allBrands:[],
       positions:{
         category:{
@@ -134,36 +135,15 @@ export default {
   methods:{
     async sortBrand(id,name){
       this.filter.brand.text = name;
+      this.filter.filter.main = true;
+      this.globalBrandId = id;
       if(id){
         this.filter.brand.bottom = false;
         this.filter.brand.main = false;
       }else{
         this.filter.brand.main = true
       }
-      if(this.category == 'newAndAksiya'){
-        if(this.sub){
-          if(this.sub == 'discount'){
-            const {data} = await this.$axios.get(`/public/products/discount?brand_id=${id}`)
-            this.products =data.discount_products
-          }else if(this.sub == 'aksiya'){
-            const {data} = await this.$axios.get(`/public/products/action?brand_id=${id}`)
-            this.products =data.action_products
-          }else if(this.sub =='new'){
-            const {data} = await this.$axios.get(`/public/products/new?brand_id=${id}`)
-            this.products =data.new_products
-          }else if(this.sub == 'gift'){
-            const {data} = await this.$axios.get(`/public/products/gift?brand_id=${id}`)
-            this.products =data.gift_products
-          }
-        }else{
-          const { data } = await this.$axios.get(`/public/products?brand_id=${id}`);
-          this.products = data.products;
-        }
-      }else{
-        const {data} = await this.$axios.get(`/public/categories/products/${this.category}?brand_id=${id}`);
-        console.log(data);
-        this.products = data.products;
-      }
+      this.fullSort();
     },
     openFilter(id){
       if(id == 1){
@@ -213,14 +193,14 @@ export default {
         if(this.sub){
           if(this.sub === 'discount'){
             try {
-              const {data} = await this.$axios.get(`/public/products/discount?sort=${id}`);
+              const {data} = await this.$axios.get(`/public/products/discount?sort=${id}&brand_id=${this.globalBrandId}`);
               this.products = data.discount_products
             } catch (error) {
               console.log(error);
             }
           }else if(this.sub === 'aksiya'){
             try {
-              const {data} = await this.$axios.get(`/public/products/action?sort=${id}`);
+              const {data} = await this.$axios.get(`/public/products/action?sort=${id}&brand_id=${this.globalBrandId}`);
               this.products = data.action_products
             } catch (error) {
               console.log(error);
@@ -228,7 +208,7 @@ export default {
           }
           else if(this.sub === 'new'){
             try {
-              const {data} = await this.$axios.get(`/public/products/new?sort=${id}`);
+              const {data} = await this.$axios.get(`/public/products/new?sort=${id}&brand_id=${this.globalBrandId}`);
               this.products = data.new_products
             } catch (error) {
               console.log(error);
@@ -236,7 +216,7 @@ export default {
           }
           else if(this.sub === 'gift'){
             try {
-              const {data} = await this.$axios.get(`/public/products/gift?sort=${id}`);
+              const {data} = await this.$axios.get(`/public/products/gift?sort=${id}&brand_id=${this.globalBrandId}`);
               this.products = data.gift_products
             } catch (error) {
               console.log(error);
@@ -244,7 +224,7 @@ export default {
           }
         }else{
           try {
-            const {data} = await this.$axios.get(`/public/products?sort=${id}`);
+            const {data} = await this.$axios.get(`/public/products?sort=${id}&brand_id=${this.globalBrandId}`);
             this.products = data.products
           } catch (error) {
             console.log(error);
@@ -254,13 +234,13 @@ export default {
         let res;
         if(!this.sub){
           try {
-            res = await this.$axios.get(`/public/categories/products/${this.category}?sort=${id}`);
+            res = await this.$axios.get(`/public/categories/products/${this.category}?sort=${id}&brand_id=${this.globalBrandId}`);
           } catch (error) {
             console.log(error);
           }
         }else{
           try {
-            res = await this.$axios.get(`/public/sub-categories/products/${this.sub}?sort=${id}`);
+            res = await this.$axios.get(`/public/sub-categories/products/${this.sub}?sort=${id}&brand_id=${this.globalBrandId}`);
           } catch (error) {
             console.log(error);
           }
@@ -327,6 +307,7 @@ export default {
                     tm:this.categories[i].subcategories[j].name_tm,
                     ru:this.categories[i].subcategories[j].name_ru
                   }
+                  break
                 }
               }
             }else{
@@ -338,13 +319,13 @@ export default {
         let res;
         if(!this.sub){
           try {
-            res = await this.$axios.get(`/public/categories/products/${this.category}?sort=0`);
+            res = await this.$axios.get(`/public/categories/products/${this.category}`);
           } catch (error) {
             console.log(error);
           }
         }else{
           try {
-            res = await this.$axios.get(`/public/sub-categories/products/${this.sub}?sort=0`);
+            res = await this.$axios.get(`/public/sub-categories/products/${this.sub}`);
           } catch (error) {
             console.log(error);
           }

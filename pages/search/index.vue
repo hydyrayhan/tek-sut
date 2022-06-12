@@ -2,12 +2,12 @@
   <div class="container">
     <div class="searchPage_header">
       <Breadcrumb :positions="positions"/>
-      <div class="searchPage_header_sum">{{$t('sum')}}: 100</div>
+      <div class="searchPage_header_sum">{{$t('sum')}}: {{products.length}}</div>
     </div>
     
     <div class="searchProducts">
-      <div class="searchProducts_product" v-for="i in 5" :key="i">
-        <Product />
+      <div class="searchProducts_product" v-for="(product , i) in products" :key="i">
+        <LazyProduct :product="product"/>
       </div>
     </div>
   </div>
@@ -29,20 +29,37 @@ export default {
           id:"1",
           to:"/search"
         },
-      }
+      },
+      products:[]
     }
   },
-  mounted(){
-    const height = window.innerHeight-462;
+  watch:{
+    async $route(){
+      this.products = await this.takeData();
+    }
+  },
+  async mounted(){
+    const height = window.innerHeight-428;
     const element = document.querySelector('.searchProducts');
-    console.log(element)
     element.style.minHeight = height+'px';
     window.addEventListener('resize',function(){
-      const height = window.innerHeight-462;
+      const height = window.innerHeight-428;
       const element = document.querySelector('.searchProducts');
       element.style.minHeight = height+'px';
     })
+    this.products = await this.takeData();
   },
+  methods:{
+    async takeData(){
+      try {
+        const productId = this.$route.query.keyword;
+        let { data } = await this.$axios.get(`/public/products/search?keyword=${productId}`);
+        return data.products
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  }
 }
 </script>
 

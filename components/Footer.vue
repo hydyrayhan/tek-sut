@@ -13,9 +13,9 @@
                     <div class="footer_top_box_link" style="max-width:300px">address of eCommers</div>
                 </div>
                 <div class="footer_top_box">
-                    <nuxt-link to="/" class="footer_top_box_link">{{$t('discount')}}</nuxt-link>
-                    <nuxt-link to="/" class="footer_top_box_link">{{$t('newProducts')}}</nuxt-link>
-                    <nuxt-link to="/" class="footer_top_box_link">{{$t('wholesalers')}}</nuxt-link>
+                    <nuxt-link to="/category/newAndAksiya?subcategory=discount" class="footer_top_box_link">{{$t('discount')}}</nuxt-link>
+                    <nuxt-link to="/category/newAndAksiya?subcategory=new" class="footer_top_box_link">{{$t('newProducts')}}</nuxt-link>
+                    <nuxt-link to="/static/wholesalers" class="footer_top_box_link">{{$t('wholesalers')}}</nuxt-link>
                 </div>
                 <div class="footer_top_box">
                     <div class="footer_top_box_link">
@@ -56,9 +56,9 @@
                         </div>
                     </div>
                     <div class="right">
-                        <nuxt-link to="/" class="footer_top_box_link">{{$t('discount')}}</nuxt-link>
-                        <nuxt-link to="/" class="footer_top_box_link">{{$t('newProducts')}}</nuxt-link>
-                        <nuxt-link to="/" class="footer_top_box_link">{{$t('wholesalers')}}</nuxt-link>
+                        <nuxt-link to="/category/newAndAksiya?subcategory=discount" class="footer_top_box_link">{{$t('discount')}}</nuxt-link>
+                        <nuxt-link to="/category/newAndAksiya?subcategory=new" class="footer_top_box_link">{{$t('newProducts')}}</nuxt-link>
+                        <nuxt-link to="/static/wholesalers" class="footer_top_box_link">{{$t('wholesalers')}}</nuxt-link>
                     </div>
                 </div>
                 <div class="footer_top_box middle">
