@@ -18,7 +18,8 @@
         <div class="product_rating_count">({{product.rating_count}})</div>
       </div>
       <div class="product_prices">
-        <div class="product_prices_new" v-if="product.price">{{product.price}} manat</div>
+        <div class="product_prices_new"  v-if="product.price">{{product.price}} manat</div>
+        <div style="width:10px; height:16px" v-if="!product.price_old"></div>
         <div class="product_prices_old" v-if="product.price_old">{{product.price_old}} manat</div>
       </div>
       <span class="isContainer">
@@ -26,12 +27,20 @@
         <div class="product_discount" v-if="product.discount">-{{product.discount}}%</div>
       </span>
     </nuxt-link>
-    <div class="product_addBtn" @click="addProduct()">
-      <img v-if="!productCount" src="~/assets/images/icons/addCart.svg" alt="">
-      <span v-if="!productCount">
-       {{$t('addCart')}}
-      </span>
-      <span v-if="productCount">{{$t('addedCart')}}</span>
+    <div class="product_addBtn_container">
+      <div class="product_addBtn" v-if="whileing" @click="addProduct()">
+        <img v-if="!productCount" class="desktop" src="~/assets/images/icons/addCart.svg" alt="">
+        <img class="mobile"  @click="sebetClicked(productCount)" src="~/assets/images/icons/addCart.svg" alt="">
+        <span v-if="!productCount">
+        {{$t('addCart')}}
+        </span>
+        <span v-if="productCount">{{$t('addedCart')}}</span>
+      </div>
+      <div v-else class="openMobileClick">
+        <div>
+          <img src="~/assets/images/icons/tick.svg" alt="">
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -42,7 +51,8 @@ export default {
   props:['product'],
   data(){
     return{
-      productCount : 0
+      productCount : 0,
+      whileing : true,
     }
   },
   computed:{
@@ -77,7 +87,14 @@ export default {
         this.deleteProduct(this.product.product_id)
         this.productCount = 0
       }
-    }
+    },
+    sebetClicked(){
+      this.whileing = false
+      const stop = setInterval(() => {
+        this.whileing = true
+        clearInterval(stop)
+      }, 1000);
+    },
   },
   
   watch:{

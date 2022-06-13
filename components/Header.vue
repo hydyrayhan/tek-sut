@@ -208,7 +208,7 @@
             </svg>
           </button>
           <div class="dropdown-container">
-            <nuxt-link to="/category/1" class="subCategory" v-for="(sub , i) in category.subcategories" :key="i">{{sub[language.name]}}</nuxt-link>
+            <nuxt-link :to="'/category/'+category.category_id+'?subcategory='+sub.subcategory_id" class="subCategory" v-for="(sub , i) in category.subcategories" :key="i">{{sub[language.name]}}</nuxt-link>
           </div>
         </div>
       </div>
