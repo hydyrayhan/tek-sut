@@ -266,7 +266,7 @@ export default {
     },
     async sendProduct(){
       if(Number(this.totalCost)<100){
-        this.$toast.success('Sargydynyz yuz manatdan az bolmaly dal');
+        this.$toast.success(this.$t('above'));
       }
       this.info.order_products = [];
       for(let i =0; i<this.cartProducts.length; i++){
@@ -276,28 +276,28 @@ export default {
         }
         this.info.order_products.push(product)
       }
-      console.log(this.info);
 
-      
-      try {
-        const res = await this.$axios.post('/public/orders/add',this.info)        
-        console.log(res)
-        if(res.data.giftProduct){
-          this.clearProducts();
-          this.giftProduct.totalPrice = res.data.order.total_price;
-          this.giftProduct.name_tm = res.data.giftProduct.name_tm;
-          this.giftProduct.name_ru = res.data.giftProduct.name_ru;
-          this.giftProduct.image = res.data.giftProduct.image;
-          this.giftProduct.overPrice = res.data.giftProduct.price;
-          this.gift = true;
-        }else{
-          this.clearProducts();
-          this.$router.push('/')
+      if(this.info.address && this.info.delivery_time && this.info.user_name && this.info.user_phone && this.info.payment_type){
+        try {
+          const res = await this.$axios.post('/public/orders/add',this.info)        
+          if(res.data.giftProduct){
+            this.clearProducts();
+            this.giftProduct.totalPrice = res.data.order.total_price;
+            this.giftProduct.name_tm = res.data.giftProduct.name_tm;
+            this.giftProduct.name_ru = res.data.giftProduct.name_ru;
+            this.giftProduct.image = res.data.giftProduct.image;
+            this.giftProduct.overPrice = res.data.giftProduct.price;
+            this.gift = true;
+          }else{
+            this.clearProducts();
+            this.$router.push('/')
+          }
+        } catch (error) {
+          console.log(error)
         }
-      } catch (error) {
-        console.log(error)
+      }else{
+        this.$toast.success(this.$t('fill'));
       }
-      console.log(this.info)
     },
     ...mapActions({
       clearProducts : 'cart/clearProducts',

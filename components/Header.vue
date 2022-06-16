@@ -208,6 +208,7 @@
             </svg>
           </button>
           <div class="dropdown-container">
+            <nuxt-link :to="'/category/'+category.category_id" class="subCategory">{{$t('allProducts')}}</nuxt-link>
             <nuxt-link :to="'/category/'+category.category_id+'?subcategory='+sub.subcategory_id" class="subCategory" v-for="(sub , i) in category.subcategories" :key="i">{{sub[language.name]}}</nuxt-link>
           </div>
         </div>
@@ -239,6 +240,13 @@
       </div>
     </div>
     <div class="mobile_menu_background" @click="closeMenu"></div>
+
+    <a href="#" class="topArrow">
+      <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.23266e-07 12.59L1.41 14L6 9.42L10.59 14L12 12.59L6 6.59L1.23266e-07 12.59Z" fill="#FCFCFC"/>
+        <path d="M6.99382e-07 6L1.41 7.41L6 2.83L10.59 7.41L12 6L6 -5.24537e-07L6.99382e-07 6Z" fill="#FCFCFC"/>
+      </svg>
+    </a>
   </div>
 </template>
 

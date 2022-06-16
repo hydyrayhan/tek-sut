@@ -62,5 +62,8 @@ export default {
   continueShopping:"Sowda dowam edin",
   filter:"Filter",
   chooseBrand:"Brand sayla",
-  notStock:"Empty stock"
+  notStock:"Empty stock",
+  allProducts:"All products",
+  fill:"Boshluklary dolduryn",
+  above:"Sargydynyz 100 manatdan uly bolmaly"
 }
