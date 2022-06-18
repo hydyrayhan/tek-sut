@@ -89,7 +89,7 @@
         <span class="mobile_header_right">
           <div class="mobile_search" @click="openMobileSearch"><img src="~/assets/images/icons/mobileSearch.svg" alt=""></div>
 
-          <nuxt-link to="/cart" class="mobile_cart"><div class="icon"><img src="~/assets/images/icons/headerCart.svg" alt="mobile cart"></div></nuxt-link>
+          <nuxt-link to="/cart" class="mobile_cart"><div class="active" v-if="cartProducts.length>0"></div><div class="icon"><img src="~/assets/images/icons/headerCart.svg" alt="mobile cart"></div></nuxt-link>
         </span>
 
 
@@ -199,6 +199,23 @@
           </div>
           <div class="text">{{$t('category')}}</div>
         </span>
+      </div>
+      <div class="menu_list">
+        <div class="sidenav">
+          <button class="dropdown-btn">
+            <span>{{$t('newAndAksiya')}}</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.416626 0.708252L4.99996 5.29159L9.58329 0.708252H0.416626Z" fill="#AFAFAF"/>
+            </svg>
+          </button>
+          <div class="dropdown-container">
+            <nuxt-link to='/category/newAndAksiya' class="subCategory">{{$t('allProducts')}}</nuxt-link>
+            <nuxt-link to='/category/newAndAksiya?subcategory=discount' class="subCategory" >{{$t('discountProducts')}}</nuxt-link>
+            <nuxt-link to='/category/newAndAksiya?subcategory=aksiya' class="subCategory" >{{$t('aksiyaProducts')}}</nuxt-link>
+            <nuxt-link to='/category/newAndAksiya?subcategory=new' class="subCategory" >{{$t('newProducts')}}</nuxt-link>
+            <nuxt-link to='/category/newAndAksiya?subcategory=gift' class="subCategory" >{{$t('giftProducts')}}</nuxt-link>
+          </div>
+        </div>
       </div>
       <div class="menu_list" v-for="(category , i ) in categories" :key="i">
         <div class="sidenav" >

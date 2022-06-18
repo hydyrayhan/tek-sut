@@ -80,15 +80,21 @@ export default {
       deleteProduct : 'cart/deleteProduct',
     }),
     addProduct(){
-      if(this.productCount === 0){
-        this.setProductToCart(this.product);
-        this.productCount+=1;
+      const height = window.innerWidth;
+      if(height> 1000){
+        if(this.productCount === 0){
+          this.setProductToCart(this.product);
+          this.productCount+=1;
+        }else{
+          this.deleteProduct(this.product.product_id)
+          this.productCount = 0
+        }
       }else{
-        this.deleteProduct(this.product.product_id)
-        this.productCount = 0
+        this.sebetClicked()
       }
     },
     sebetClicked(){
+      this.setProductToCart(this.product)
       this.whileing = false
       const stop = setInterval(() => {
         this.whileing = true

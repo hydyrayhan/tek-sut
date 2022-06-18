@@ -17,7 +17,6 @@ export default {
   orderAd:"Order advice",
   usage:"Ulanyş düzgünleri",
   addCart:"Sebede goş",
-  newProducts:"Täze harytlar",
   home:"Esasy",
   price:"Bahasy",
   lowtohigh:"Arzandan gymmada",

@@ -104,7 +104,7 @@
       </div>
       <div class="mobile_totalPriceCon">
         <div class="mobile_totalPrice">
-          <div class="title">{{$t('totalProducts')}}: <span>{{totalCost}} manat</span></div>
+          <div class="title"><span>{{$t('totalProducts')}}:</span> <span>{{totalCost}} manat</span></div>
           <button class="totalPriceButton" @click="sendProduct">{{$t('continue')}}</button>         
         </div>
       </div>

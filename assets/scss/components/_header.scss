@@ -147,6 +147,18 @@
           .mobile_search{
             @include flex;
           }
+          .mobile_cart{
+            position: relative;
+            .active{
+              position: absolute;
+              width: 12px;
+              height: 12px;
+              background-color: $red;
+              border-radius: 6px;
+              top: -5px;
+              left: 15px;
+            }
+          }
         }
         div{
           cursor: pointer;
@@ -649,23 +661,22 @@
 html{
   scroll-behavior: smooth;
 }
-.top{
-  background: #000;
-  width: 100px;
-}
+// .top{
+  // background: #000;
+  // width: 100px;
+// }
 .topArrow{
   position: fixed;
   bottom: 5%;
   right: 5%;
   cursor: pointer;
-  background: $green;
-  opacity: 0.5;
+  background: #b9e280;
   border-radius: 100px;
   @include flex(row,center);
   height: 40px;
   width: 40px;
   z-index: 11;
   &:hover{
-    opacity: 1;
+    background: rgba(141, 198, 63, 1);
   }
 }

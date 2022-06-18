@@ -171,14 +171,16 @@
     .title{
       font-size: 15px;
       color: #AFAFAF;
-      span{
+      span:nth-child(2){
         font-size: 15px;
         font-weight: 600;
         letter-spacing: 1px;
+        display: inline-block;
       }
     }
     .totalPriceButton{
-      padding: 12px 32px;
+      padding: 12px 0px;
+      min-width: 127px;
       font-size: 14px;
       background: #8DC63F;
       border-radius: 16px;
