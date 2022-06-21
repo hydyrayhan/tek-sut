@@ -100,12 +100,12 @@
           <div class="cartPage_myCart_totalPrice_title">{{$t('totalProducts')}}:</div>
           <div class="cartPage_myCart_totalPrice_price">{{totalCost}} manat</div>
         </div>
-        <button class="cartPage_myCart_btn" @click="sendProduct">{{$t('continue')}}</button>
+        <button class="cartPage_myCart_btn" :class="totalCost>0 ? '' : 'disabled'" @click="sendProduct">{{$t('continue')}}</button>
       </div>
       <div class="mobile_totalPriceCon">
         <div class="mobile_totalPrice">
           <div class="title"><span>{{$t('totalProducts')}}:</span> <span>{{totalCost}} manat</span></div>
-          <button class="totalPriceButton" @click="sendProduct">{{$t('continue')}}</button>         
+          <button :class="totalCost>0 ? '' : 'disabled'" class="totalPriceButton" @click="sendProduct">{{$t('continue')}}</button>         
         </div>
       </div>
     </div>
@@ -267,36 +267,37 @@ export default {
     async sendProduct(){
       if(Number(this.totalCost)<100){
         this.$toast.success(this.$t('above'));
-      }
-      this.info.order_products = [];
-      for(let i =0; i<this.cartProducts.length; i++){
-        const product = {
-          product_id:this.cartProducts[i].product_id,
-          quantity:this.cartProducts[i].count
-        }
-        this.info.order_products.push(product)
-      }
-
-      if(this.info.address && this.info.delivery_time && this.info.user_name && this.info.user_phone && this.info.payment_type){
-        try {
-          const res = await this.$axios.post('/public/orders/add',this.info)        
-          if(res.data.giftProduct){
-            this.clearProducts();
-            this.giftProduct.totalPrice = res.data.order.total_price;
-            this.giftProduct.name_tm = res.data.giftProduct.name_tm;
-            this.giftProduct.name_ru = res.data.giftProduct.name_ru;
-            this.giftProduct.image = res.data.giftProduct.image;
-            this.giftProduct.overPrice = res.data.giftProduct.price;
-            this.gift = true;
-          }else{
-            this.clearProducts();
-            this.$router.push('/')
-          }
-        } catch (error) {
-          console.log(error)
-        }
       }else{
-        this.$toast.success(this.$t('fill'));
+        this.info.order_products = [];
+        for(let i =0; i<this.cartProducts.length; i++){
+          const product = {
+            product_id:this.cartProducts[i].product_id,
+            quantity:this.cartProducts[i].count
+          }
+          this.info.order_products.push(product)
+        }
+  
+        if(this.info.address && this.info.delivery_time && this.info.user_name && this.info.user_phone && this.info.payment_type){
+          try {
+            const res = await this.$axios.post('/public/orders/add',this.info)        
+            if(res.data.giftProduct){
+              this.clearProducts();
+              this.giftProduct.totalPrice = res.data.order.total_price;
+              this.giftProduct.name_tm = res.data.giftProduct.name_tm;
+              this.giftProduct.name_ru = res.data.giftProduct.name_ru;
+              this.giftProduct.image = res.data.giftProduct.image;
+              this.giftProduct.overPrice = res.data.giftProduct.price;
+              this.gift = true;
+            }else{
+              this.clearProducts();
+              this.$router.push('/')
+            }
+          } catch (error) {
+            console.log(error)
+          }
+        }else{
+          this.$toast.success(this.$t('fill'));
+        }
       }
     },
     ...mapActions({

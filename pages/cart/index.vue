@@ -58,10 +58,10 @@
           <div class="cartPage_myCart_totalPrice_title">{{$t('totalProducts')}}:</div>
           <div class="cartPage_myCart_totalPrice_price">{{totalCost}} manat</div>
         </div>
-        <button class="cartPage_myCart_btn" @click="$router.push('order')">{{$t('continue')}}</button>
+        <button class="cartPage_myCart_btn" :class="totalCost>0 ? '' : 'disabled'" @click="gotoOrder">{{$t('continue')}}</button>
       </div>
     </div>
-    <nuxt-link to="/order" class="mobile_continueBtn">{{$t('continue')}}</nuxt-link>
+    <div class="mobile_continueBtn" @click="gotoOrder">{{$t('continue')}}</div>
   </div>
 </template>
 
@@ -138,6 +138,11 @@ export default {
     },
     deleteProductFromCart(id){
       this.deleteProduct(id)
+    },
+    gotoOrder(){
+      if(this.totalCost > 0){
+        this.$router.push('order')
+      }
     }
   }
 }

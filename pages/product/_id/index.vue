@@ -253,6 +253,7 @@ export default {
       referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
     },
     buyOneClick(){
+      // window.localStorage.setItem('cart-oneClick-product', JSON.stringify(this.product))
       this.$router.push('/order');
     },
     gallery(id){

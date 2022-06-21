@@ -3,9 +3,6 @@
     <div class="categorypage_header">
       <Breadcrumb :positions="positions"/>
       <div class="category_filter" v-click-outside="closeFilter">
-        <!-- <div class="category_filter_price">{{$t('price')}}:</div>
-        <div class="category_filter_lowToHigh category_filter_button" @click="sort(1)">{{$t('lowtohigh')}}</div>
-        <div class="category_filter_highToLow category_filter_button" @click="sort(2)">{{$t('hightolow')}}</div> -->
         <div class="category_filter_filter filter1" @click="openFilter(1)" v-if="filter.filter.main">
           <span>{{$t('filter')}}</span>
           <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,8 +120,6 @@ export default {
       const element = document.querySelector('.category_products');
       element.style.minHeight = height+'px';
     })
-
-    
     await this.takeData();
   },
   watch:{
@@ -133,6 +128,7 @@ export default {
     }
   },
   methods:{
+
     async sortBrand(id,name){
       this.filter.brand.text = name;
       this.filter.filter.main = true;

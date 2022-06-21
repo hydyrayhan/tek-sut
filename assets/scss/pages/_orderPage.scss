@@ -186,6 +186,10 @@
       border-radius: 16px;
       border: none;
       color: white;
+      &.disabled{
+        background-color: #E2E0E0;
+        cursor: auto;
+      }
     }
   }
 }
