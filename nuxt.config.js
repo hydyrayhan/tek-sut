@@ -8,6 +8,9 @@ export default {
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3001,
   },
+  env:{
+    socketUrl: process.env.SERVER_URL,
+  },
   head: {
     title: 'tek',
     htmlAttrs: {

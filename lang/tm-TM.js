@@ -64,5 +64,6 @@ export default {
   notStock:"Empty stock",
   allProducts:"All products",
   fill:"Boshluklary dolduryn",
-  above:"Sargydynyz 100 manatdan uly bolmaly"
+  above:"Sargydynyz 100 manatdan uly bolmaly",
+  chat_holder:"Text here",
 }
