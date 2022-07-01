@@ -32,5 +32,17 @@
   "devDependencies": {
     "sass": "^1.50.1",
     "sass-loader": "^10.1.1"
-  }
+  },
+  "description": "```bash\r # install dependencies\r $ npm install",
+  "main": "nuxt.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hydyrayhan/tek-sut.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hydyrayhan/tek-sut/issues"
+  },
+  "homepage": "https://github.com/hydyrayhan/tek-sut#readme"
 }
