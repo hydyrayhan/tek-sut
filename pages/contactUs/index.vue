@@ -84,11 +84,11 @@ export default {
     const height = window.innerHeight-388;
     const element = document.querySelector('.static_con');
     element.style.minHeight = height+'px';
-    window.addEventListener('resize',function(){
-      const height = window.innerHeight-388;
-      const element = document.querySelector('.static_con');
-      element.style.minHeight = height+'px';
-    })
+    // window.addEventListener('resize',function(){
+    //   const height = window.innerHeight-388;
+    //   const element = document.querySelector('.static_con');
+    //   element.style.minHeight = height+'px';
+    // })
   },
   methods:{
     textarea(){

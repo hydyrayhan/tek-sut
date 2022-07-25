@@ -19,7 +19,7 @@
             <div class="header_top_box_text"> +993 64 64 64 64</div>
           </div>
           <div class="header_top_box">
-            <div class="header_top_box_text">Is wagty 09:00-19:00 </div>
+            <div class="header_top_box_text">{{$t('workTime')}} 09:00-19:00 </div>
           </div>
           <div class="header_top_box">
             <client-only>

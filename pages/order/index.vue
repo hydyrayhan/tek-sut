@@ -11,7 +11,11 @@
           </div>
           <div class="orderPage_left_namePhone_phone col">
             <label for="phone" class="orderPage_label">{{$t('phone')}}</label>
-            <input type="text" id="phone" v-model="info.user_phone" class="orderPage_input" placeholder="+993">
+            <label class="phoneNumberInput">
+              <span>+993</span>
+              <input type="number" pattern="/^-?\d+\.?\d*$/" id="phone"  class="orderPage_input" v-model="info.user_phone" onKeyPress="if(this.value.length==8) return false;" />
+            </label>
+            <!-- <input type="text" id="phone" v-model="info.user_phone" class="orderPage_input" placeholder="+993"> -->
           </div>
         </div>
 
@@ -127,6 +131,15 @@
       </div>
       <button class="giftButton" @click="giftGo">{{$t('continueShopping')}}</button>
     </div>
+
+    <div class="verificationBg" @click="closeVerification" v-if="verification"></div>
+    <div class="verificationPopup" v-if="verification">
+      <label>
+        <span>Code girizin</span>
+        <input type="text" v-model="verificationCode">
+      </label>
+      <button @click="veriCode">submit</button>
+    </div>
   </div>
 </template>
 
@@ -141,6 +154,9 @@ export default {
       oldImg:require("~/assets/images/icons/radioOff.svg"),
       checkboxvalue:false,
       gift:false,
+      verification:false,
+      verificationCode:'',
+      code:'',
       position:{
         category:{
           name:{
@@ -162,6 +178,7 @@ export default {
         address:'',
         user_name:'',
         user_phone:'',
+        help:'',
         note:'',
         payment_type:'',
         delivery_time:'',
@@ -175,11 +192,11 @@ export default {
     const height = window.innerHeight-345;
     const element = document.querySelector('.orderPageContainer');
     element.style.minHeight = height+'px';
-    window.addEventListener('resize',function(){
-      const height = window.innerHeight-345;
-      const element = document.querySelector('.orderPageContainer');
-      element.style.minHeight = height+'px';
-    })
+    // window.addEventListener('resize',function(){
+    //   const height = window.innerHeight-345;
+    //   const element = document.querySelector('.orderPageContainer');
+    //   element.style.minHeight = height+'px';
+    // })
   },
   computed: {
     ...mapGetters({
@@ -189,6 +206,9 @@ export default {
     }),
   },
   methods:{
+    closeVerification(){
+      this.verification = false;
+    },
     giftGo(){
       this.gift = false;
       this.$router.push('/')
@@ -215,10 +235,13 @@ export default {
     },
     checkbox(){
       const input = document.querySelector(".orderPage_left_myself img");
+      const time = document.querySelector(".orderPage_left_time");
       this.checkboxvalue = !this.checkboxvalue;
       if(this.checkboxvalue){
+        time.style.display = "none"
         input.setAttribute("src",this.img);
       }else{
+        time.style.display = "block"
         input.setAttribute('src',this.oldImg)
       }
     },
@@ -276,30 +299,60 @@ export default {
           }
           this.info.order_products.push(product)
         }
-  
-        if(this.info.address && this.info.delivery_time && this.info.user_name && this.info.user_phone && this.info.payment_type){
-          try {
-            const res = await this.$axios.post('/public/orders/add',this.info)        
-            if(res.data.giftProduct){
-              this.clearProducts();
-              this.giftProduct.totalPrice = res.data.order.total_price;
-              this.giftProduct.name_tm = res.data.giftProduct.name_tm;
-              this.giftProduct.name_ru = res.data.giftProduct.name_ru;
-              this.giftProduct.image = res.data.giftProduct.image;
-              this.giftProduct.overPrice = res.data.giftProduct.price;
-              this.gift = true;
-            }else{
-              this.clearProducts();
-              this.$router.push('/')
+        if(this.info.address && ( this.info.delivery_time || this.info.i_take ) && this.info.user_name && this.info.user_phone && this.info.payment_type){
+          
+          let verification;
+
+          verification = await this.$axios.post('/public/orders/add',{check_phone:"+993"+this.info.user_phone})
+          this.code = verification.data.code;
+          if(verification.data.status ==1){
+            try {
+              this.info.user_phone = '+993'+this.info.user_phone;
+              const res = await this.$axios.post('/public/orders/add',this.info)        
+              if(res.data.giftProduct){
+                this.clearProducts();
+                this.giftProduct.totalPrice = res.data.order.total_price;
+                this.giftProduct.name_tm = res.data.giftProduct.name_tm;
+                this.giftProduct.name_ru = res.data.giftProduct.name_ru;
+                this.giftProduct.image = res.data.giftProduct.image;
+                this.giftProduct.overPrice = res.data.giftProduct.price;
+                this.gift = true;
+              }else{
+                this.clearProducts();
+                this.$router.push('/')
+              }
+            } catch (error) {
+              console.log(error)
             }
-          } catch (error) {
-            console.log(error)
+          }else{
+            // console.log(verification)
+            this.verification = true;
           }
         }else{
           this.$toast.success(this.$t('fill'));
         }
       }
     },
+    async veriCode(){
+      if(this.code == this.verificationCode){
+        this.verification = false;
+        this.info.user_phone = '+993'+this.info.user_phone;
+        const res = await this.$axios.post('/public/orders/add',this.info)        
+        if(res.data.giftProduct){
+          this.clearProducts();
+          this.giftProduct.totalPrice = res.data.order.total_price;
+          this.giftProduct.name_tm = res.data.giftProduct.name_tm;
+          this.giftProduct.name_ru = res.data.giftProduct.name_ru;
+          this.giftProduct.image = res.data.giftProduct.image;
+          this.giftProduct.overPrice = res.data.giftProduct.price;
+          this.gift = true;
+        }else{
+          this.clearProducts();
+          this.$router.push('/')
+        }
+      }
+    },
+
     ...mapActions({
       clearProducts : 'cart/clearProducts',
     }),

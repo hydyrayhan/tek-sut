@@ -107,23 +107,23 @@ export default {
       const height = window.innerHeight-479;
       element.style.minHeight = height+'px';
     }
-    window.addEventListener('resize',function(){
-      const width = window.innerWidth
-      if(width > 1000){
-        const element = document.querySelector('.cartPage');
-        const height = window.innerHeight-425;
-        element.style.minHeight = height+'px';
+    // window.addEventListener('resize',function(){
+    //   const width = window.innerWidth
+    //   if(width > 1000){
+    //     const element = document.querySelector('.cartPage');
+    //     const height = window.innerHeight-425;
+    //     element.style.minHeight = height+'px';
         
-      }else if(width > 640 && width < 1000){
-        const element = document.querySelector('.cartPage');
-        const height = window.innerHeight-363;
-        element.style.minHeight = height+'px';
-      }else if(width > 0 && width < 640){
-        const element = document.querySelector('.cartPage');
-        const height = window.innerHeight-479;
-        element.style.minHeight = height+'px';
-      }
-    })
+    //   }else if(width > 640 && width < 1000){
+    //     const element = document.querySelector('.cartPage');
+    //     const height = window.innerHeight-363;
+    //     element.style.minHeight = height+'px';
+    //   }else if(width > 0 && width < 640){
+    //     const element = document.querySelector('.cartPage');
+    //     const height = window.innerHeight-479;
+    //     element.style.minHeight = height+'px';
+    //   }
+    // })
   },
   methods:{
     ...mapActions({

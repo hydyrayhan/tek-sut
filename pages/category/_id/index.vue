@@ -115,11 +115,11 @@ export default {
     const height = window.innerHeight-385;
     const element = document.querySelector('.category_products');
     element.style.minHeight = height+'px';
-    window.addEventListener('resize',function(){
-      const height = window.innerHeight-385;
-      const element = document.querySelector('.category_products');
-      element.style.minHeight = height+'px';
-    })
+    // window.addEventListener('resize',function(){
+    //   const height = window.innerHeight-385;
+    //   const element = document.querySelector('.category_products');
+    //   element.style.minHeight = height+'px';
+    // })
     await this.takeData();
   },
   watch:{

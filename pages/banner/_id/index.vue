@@ -30,11 +30,11 @@ export default {
     const height = window.innerHeight-325;
     const element = document.querySelector('.static_con');
     element.style.minHeight = height+'px';
-    window.addEventListener('resize',function(){
-      const height = window.innerHeight-325;
-      const element = document.querySelector('.static_con');
-      element.style.minHeight = height+'px';
-    })
+    // window.addEventListener('resize',function(){
+    //   const height = window.innerHeight-325;
+    //   const element = document.querySelector('.static_con');
+    //   element.style.minHeight = height+'px';
+    // })
     const page = this.$route.params.id;
     
     try {

@@ -25,7 +25,7 @@
           <span @click="clearSearch">
             <nuxt-link :to="'/search?keyword='+searchValue" >{{$t('seeAll')}}</nuxt-link> 
           </span>
-          <span>{{$t('result')}}:2</span>
+          <span>{{$t('result')}}:{{data.length}}</span>
         </div>
       </div>
     </div>

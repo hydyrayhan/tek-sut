@@ -138,7 +138,7 @@ export default {
   .chatContainer{
     position: fixed;
     z-index: 1000000000;
-    bottom: 20px;
+    bottom: 10%;
     right: 2.5%;
     display: flex;
     flex-direction: column;

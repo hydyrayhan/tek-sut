@@ -42,11 +42,11 @@ export default {
     const height = window.innerHeight-428;
     const element = document.querySelector('.searchProducts');
     element.style.minHeight = height+'px';
-    window.addEventListener('resize',function(){
-      const height = window.innerHeight-428;
-      const element = document.querySelector('.searchProducts');
-      element.style.minHeight = height+'px';
-    })
+    // window.addEventListener('resize',function(){
+    //   const height = window.innerHeight-428;
+    //   const element = document.querySelector('.searchProducts');
+    //   element.style.minHeight = height+'px';
+    // })
     this.products = await this.takeData();
   },
   methods:{

@@ -46,11 +46,11 @@ export default {
     const height = window.innerHeight-385;
     const element = document.querySelector('.brandPage');
     element.style.minHeight = height+'px';
-    window.addEventListener('resize',function(){
-      const height = window.innerHeight-385;
-      const element = document.querySelector('.brandPage');
-      element.style.minHeight = height+'px';
-    })
+    // window.addEventListener('resize',function(){
+    //   const height = window.innerHeight-385;
+    //   const element = document.querySelector('.brandPage');
+    //   element.style.minHeight = height+'px';
+    // })
   },
   computed:{
      ...mapGetters({

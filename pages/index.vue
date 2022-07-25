@@ -6,11 +6,11 @@
           :options="bannerSliderOptions"
         >
           <swiper-slide v-for="(item, i) in banner" :key="i">
-            <nuxt-link :to="item.link" class="news__slider__item" > 
+            <a :href="item.link" class="news__slider__item" > 
                 <div class="news__slider__item__image">
                   <img v-bind:src="$config.url+'/'+item[language.image]" :alt="item[language.image]">
                 </div>
-            </nuxt-link>
+            </a>
             </swiper-slide>
             <div slot="pagination" class="swiper-pagination"></div>
 
